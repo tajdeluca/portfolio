@@ -6,8 +6,16 @@
 
 :root {
   --headerBackground: linear-gradient(134deg, #3023AE, #C86DD7);
+  --cwtBackground: linear-gradient(-34deg, #EF4C25, #FFBCAB);
+  --zen3Background: linear-gradient(-34deg, #2B5BA7, #82BCEA);
+  --htxBackground: linear-gradient(-34deg, #003087, #0961A6);
+  --iupBackground: linear-gradient(-34deg, #ED1C24, #F39C9F);
 }
 
 body.no-gradients {
   --headerBackground: #3023AE;
+  --cwtBackground: #EF4C25;
+  --zen3Background: #2B5BA7;
+  --htxBackground: #003087;
+  --iupBackground: #ED1C24;
 }
