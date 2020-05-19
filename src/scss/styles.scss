@@ -2,4 +2,12 @@
 @import "bulma-variables";
 @import "bulma/sass/utilities/_all";
 @import "bulma/sass/base/_all";
-@import "bulma/sass/grid/columns.sass"
+@import "bulma/sass/grid/columns.sass";
+
+:root {
+  --headerBackground: linear-gradient(134deg, #3023AE, #C86DD7);
+}
+
+body.no-gradients {
+  --headerBackground: #3023AE;
+}

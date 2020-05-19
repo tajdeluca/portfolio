@@ -1,0 +1,23 @@
+header {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 256px;
+  justify-content: center;
+  position: relative;
+  text-align: center;
+
+  h1 {
+    color: #ffffff;
+    font-size: 32px;
+  }
+
+  h2 {
+    color: #ffffff;
+    font-size: 24px;
+  }
+
+  .nowrap {
+    white-space: nowrap;
+  }
+}
