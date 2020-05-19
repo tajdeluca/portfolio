@@ -8,7 +8,7 @@ import { UiModule } from './modules/ui/ui.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,

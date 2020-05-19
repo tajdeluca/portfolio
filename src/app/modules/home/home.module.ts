@@ -6,6 +6,7 @@ import { ProficienciesComponent } from './components/proficiencies/proficiencies
 import { WhatIWorkWithComponent } from './components/what-i-work-with/what-i-work-with.component';
 import { PastExperienceComponent } from './components/past-experience/past-experience.component';
 import { IndexComponent } from './pages/index/index.component';
+import { UiModule } from '../ui/ui.module';
 
 
 
@@ -19,7 +20,8 @@ import { IndexComponent } from './pages/index/index.component';
     IndexComponent,
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    UiModule,
   ]
 })
 export class HomeModule { }
