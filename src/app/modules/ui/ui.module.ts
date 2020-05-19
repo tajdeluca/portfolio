@@ -6,6 +6,7 @@ import { BadgeComponent } from './components/badge/badge.component';
 import { IconComponent } from './components/icon/icon.component';
 import { LottieModule } from 'ngx-lottie';
 import player from 'lottie-web';
+import { RouterModule } from '@angular/router';
 
 export function playerFactory() {
   return player;
@@ -15,7 +16,8 @@ export function playerFactory() {
   declarations: [NavigationComponent, FooterComponent, BadgeComponent, IconComponent],
   imports: [
     CommonModule,
-    LottieModule.forRoot({ player: playerFactory })
+    LottieModule.forRoot({ player: playerFactory }),
+    RouterModule,
   ],
   exports: [
     NavigationComponent,

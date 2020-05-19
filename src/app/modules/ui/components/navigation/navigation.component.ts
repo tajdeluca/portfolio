@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { fromEvent } from 'rxjs';
+import { map, shareReplay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-navigation',
@@ -6,6 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navigation.component.scss']
 })
 export class NavigationComponent implements OnInit {
+
+  scrollingPage$ = fromEvent(window, 'scroll').pipe(
+    map(_ => window.scrollY > 0),
+    shareReplay(1),
+  );
 
   constructor() { }
 
