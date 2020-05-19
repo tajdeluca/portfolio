@@ -14,6 +14,8 @@
   --iupBackground: linear-gradient(-34deg, #ED1C24, #F39C9F);
   /* Proficiencies */
   --proficiencyBackground: linear-gradient(134deg, #3C6AA1, #4A90E2);
+  /* Current Tools */
+  --currentToolsBackground: linear-gradient(134deg, #3023AE, #C86DD7);
 }
 
 body.no-gradients {
@@ -26,4 +28,6 @@ body.no-gradients {
   --iupBackground: #ED1C24;
   /* Proficiencies */
   --proficiencyBackground: #3C6AA1;
+  /* Current Tools */
+  --currentToolsBackground: #3023AE;
 }

@@ -15,6 +15,13 @@ export class IconComponent implements OnInit {
     }
   };
 
+  readonly giftOptions: AnimationOptions = {
+    path: '/assets/icons/gift-animation.json',
+    rendererSettings: {
+      preserveAspectRatio: 'xMidYMid slice',
+    }
+  };
+
   @Input() iconStyle = 'wand';
   @Input() backgroundStyle = 'proficiency';
 

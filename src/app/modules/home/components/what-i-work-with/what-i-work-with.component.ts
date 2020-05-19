@@ -7,6 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WhatIWorkWithComponent implements OnInit {
 
+  tools = [
+    'C# .NET Core REST APIs',
+    'Azure DevOps',
+    'Azure Cloud',
+    'Angular 8+ Web Apps',
+  ];
+
   constructor() { }
 
   ngOnInit(): void {

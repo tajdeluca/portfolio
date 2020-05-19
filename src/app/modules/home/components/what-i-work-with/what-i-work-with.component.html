@@ -1,1 +1,8 @@
-<p>what-iwork-with works!</p>
+<div class="icon">
+  <app-icon backgroundStyle="current-tools" iconStyle="present"></app-icon>
+  <h2>I work with these on a regular basis...</h2>
+</div>
+
+<div class="badges">
+  <app-badge badgeStyle="current-tools" *ngFor="let tool of tools">{{ tool }}</app-badge>
+</div>

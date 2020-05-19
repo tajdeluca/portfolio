@@ -10,4 +10,8 @@ div {
   &.proficiency {
     background: var(--proficiencyBackground);
   }
+
+  &.current-tools {
+    background: var(--currentToolsBackground);
+  }
 }

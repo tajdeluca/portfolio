@@ -9,5 +9,10 @@ span {
     background: var(--proficiencyBackground);
     color: #ffffff;
   }
+
+  &.current-tools {
+    background: var(--currentToolsBackground);
+    color: #ffffff;
+  }
 }
 
