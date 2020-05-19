@@ -1,22 +1,37 @@
+@import "bulma-variables";
+@import "bulma/sass/utilities/_all";
+
 header {
   align-items: center;
   display: flex;
   flex-direction: column;
-  height: 256px;
+  height: 16rem;
   justify-content: center;
   padding-left: 1rem;
   padding-right: 1rem;
   position: relative;
   text-align: center;
 
+  @include tablet {
+    height: 28.75rem;
+  }
+
   h1 {
     color: #ffffff;
     font-size: 2rem;
+
+    @include tablet {
+      font-size: 3rem;
+    }
   }
 
   h2 {
     color: #ffffff;
     font-size: 1.5rem;
+
+    @include tablet {
+      font-size: 2.25rem;
+    }
   }
 
   .nowrap {

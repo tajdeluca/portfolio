@@ -1,7 +1,14 @@
+@import "bulma-variables";
+@import "bulma/sass/utilities/_all";
+
 :host {
   display: flex;
   flex-direction: column;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
+
+  @include tablet {
+    margin-bottom: 3rem;
+  }
 }
 
 h3 {
@@ -12,6 +19,11 @@ h3 {
   text-align: center;
   transform: rotate(-5deg);
   width: 106vw;
+
+  @include tablet {
+    font-size: 1.5rem;
+    padding: 2rem;
+  }
 }
 
 .job {

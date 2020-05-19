@@ -1,5 +1,12 @@
+@import "bulma-variables";
+@import "bulma/sass/utilities/_all";
+
 :host {
   --iconSize: 5rem;
+
+  @include tablet {
+    --iconSize: 7.8125rem;
+  }
 }
 
 div {

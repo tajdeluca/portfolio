@@ -1,7 +1,14 @@
+@import "bulma-variables";
+@import "bulma/sass/utilities/_all";
+
 :host {
   display: flex;
   flex-direction: column;
   margin-bottom: 2rem;
+
+  @include tablet {
+    margin-bottom: 3rem;
+  }
 }
 
 .icon {
