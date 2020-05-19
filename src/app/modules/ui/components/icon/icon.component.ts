@@ -22,7 +22,14 @@ export class IconComponent implements OnInit {
     }
   };
 
-  @Input() iconStyle = 'wand';
+  readonly clockOptions: AnimationOptions = {
+    path: '/assets/icons/clock-animation.json',
+    rendererSettings: {
+      preserveAspectRatio: 'xMidYMid slice',
+    }
+  };
+
+  @Input() iconStyle: 'wand'|'present'|'past' = 'wand';
   @Input() backgroundStyle = 'proficiency';
 
   constructor() { }

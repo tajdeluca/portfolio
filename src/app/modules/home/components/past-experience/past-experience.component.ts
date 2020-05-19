@@ -7,6 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PastExperienceComponent implements OnInit {
 
+  pastTools = [
+    'AWS',
+    'Jenkins',
+    'PHP',
+    'AngularJS',
+    'jQuery',
+  ];
+
   constructor() { }
 
   ngOnInit(): void {

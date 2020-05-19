@@ -14,5 +14,10 @@ span {
     background: var(--currentToolsBackground);
     color: #ffffff;
   }
+
+  &.past-tools {
+    background: var(--pastToolsBackground);
+    color: #ffffff;
+  }
 }
 

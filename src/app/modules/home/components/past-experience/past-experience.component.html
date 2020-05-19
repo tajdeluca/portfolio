@@ -1,1 +1,8 @@
-<p>past-experience works!</p>
+<div class="icon">
+  <app-icon backgroundStyle="past-tools" iconStyle="past"></app-icon>
+  <h2>In the past I worked with these regularly...</h2>
+</div>
+
+<div class="badges">
+  <app-badge badgeStyle="past-tools" *ngFor="let tool of pastTools">{{ tool }}</app-badge>
+</div>

@@ -16,6 +16,8 @@
   --proficiencyBackground: linear-gradient(134deg, #3C6AA1, #4A90E2);
   /* Current Tools */
   --currentToolsBackground: linear-gradient(134deg, #3023AE, #C86DD7);
+  /* Past Tools */
+  --pastToolsBackground: linear-gradient(134deg, #633CA1, #4A74E2);
 }
 
 body.no-gradients {
@@ -30,4 +32,6 @@ body.no-gradients {
   --proficiencyBackground: #3C6AA1;
   /* Current Tools */
   --currentToolsBackground: #3023AE;
+  /* Past Tools */
+  --pastToolsBackground: #633CA1;
 }

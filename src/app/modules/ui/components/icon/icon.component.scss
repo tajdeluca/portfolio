@@ -14,4 +14,8 @@ div {
   &.current-tools {
     background: var(--currentToolsBackground);
   }
+
+  &.past-tools {
+    background: var(--pastToolsBackground);
+  }
 }
