@@ -3,6 +3,7 @@
 @import "bulma/sass/utilities/_all";
 @import "bulma/sass/base/_all";
 @import "bulma/sass/grid/columns.sass";
+@import "fonts";
 
 :root {
   /* Header */
@@ -20,6 +21,8 @@
   --pastToolsBackground: linear-gradient(134deg, #633CA1, #4A74E2);
   /* Footer */
   --footerBackground: linear-gradient(134deg, #633CA1, #4A74E2);
+  /* Heading Font Family */
+  --headingFontFamily: "Zilla Slab", BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 }
 
 body.no-gradients {
@@ -38,4 +41,8 @@ body.no-gradients {
   --pastToolsBackground: #633CA1;
   /* Footer */
   --footerBackground: #633CA1;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--headingFontFamily);
 }

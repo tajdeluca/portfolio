@@ -24,6 +24,8 @@
     "ngx-lottie": "^6.0.0",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
+    "typeface-raleway": "0.0.75",
+    "typeface-zilla-slab": "0.0.72",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
