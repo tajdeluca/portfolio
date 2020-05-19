@@ -1,2 +1,8 @@
-<app-icon></app-icon>
-<app-badge *ngFor="let proficiency of proficiencies">{{ proficiency }}</app-badge>
+<div class="icon">
+  <app-icon></app-icon>
+  <h2>I really excel in...</h2>
+</div>
+
+<div class="badges">
+  <app-badge class="proficiency" *ngFor="let proficiency of proficiencies">{{ proficiency }}</app-badge>
+</div>
