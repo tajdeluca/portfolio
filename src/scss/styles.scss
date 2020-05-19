@@ -5,7 +5,7 @@
 @import "bulma/sass/grid/columns.sass";
 
 :root {
-  /* The main header */
+  /* Header */
   --headerBackground: linear-gradient(134deg, #3023AE, #C86DD7);
   /* Jobs */
   --cwtBackground: linear-gradient(-34deg, #EF4C25, #FFBCAB);
@@ -18,10 +18,12 @@
   --currentToolsBackground: linear-gradient(134deg, #3023AE, #C86DD7);
   /* Past Tools */
   --pastToolsBackground: linear-gradient(134deg, #633CA1, #4A74E2);
+  /* Footer */
+  --footerBackground: linear-gradient(134deg, #633CA1, #4A74E2);
 }
 
 body.no-gradients {
-  /* The main header */
+  /* Header */
   --headerBackground: #3023AE;
   /* Jobs */
   --cwtBackground: #EF4C25;
@@ -34,4 +36,6 @@ body.no-gradients {
   --currentToolsBackground: #3023AE;
   /* Past Tools */
   --pastToolsBackground: #633CA1;
+  /* Footer */
+  --footerBackground: #633CA1;
 }
