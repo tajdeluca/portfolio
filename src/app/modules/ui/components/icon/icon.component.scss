@@ -1,0 +1,13 @@
+:host {
+  --iconSize: 5rem;
+}
+
+div {
+  border-radius: var(--iconSize);
+  height: var(--iconSize);
+  width: var(--iconSize);
+
+  &.proficiency {
+    background: var(--proficiencyBackground);
+  }
+}

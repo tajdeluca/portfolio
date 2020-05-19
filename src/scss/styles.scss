@@ -5,17 +5,25 @@
 @import "bulma/sass/grid/columns.sass";
 
 :root {
+  /* The main header */
   --headerBackground: linear-gradient(134deg, #3023AE, #C86DD7);
+  /* Jobs */
   --cwtBackground: linear-gradient(-34deg, #EF4C25, #FFBCAB);
   --zen3Background: linear-gradient(-34deg, #2B5BA7, #82BCEA);
   --htxBackground: linear-gradient(-34deg, #003087, #0961A6);
   --iupBackground: linear-gradient(-34deg, #ED1C24, #F39C9F);
+  /* Proficiencies */
+  --proficiencyBackground: linear-gradient(134deg, #3C6AA1, #4A90E2);
 }
 
 body.no-gradients {
+  /* The main header */
   --headerBackground: #3023AE;
+  /* Jobs */
   --cwtBackground: #EF4C25;
   --zen3Background: #2B5BA7;
   --htxBackground: #003087;
   --iupBackground: #ED1C24;
+  /* Proficiencies */
+  --proficiencyBackground: #3C6AA1;
 }

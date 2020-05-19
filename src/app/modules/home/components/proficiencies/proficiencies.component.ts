@@ -7,6 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProficienciesComponent implements OnInit {
 
+  proficiencies = [
+    'JavaScript',
+    'TypeScript',
+    'CSS',
+    'SCSS',
+    'Webpack',
+    'HTML',
+  ];
+
   constructor() { }
 
   ngOnInit(): void {
