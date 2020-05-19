@@ -9,6 +9,10 @@
   @include tablet {
     margin-bottom: 3rem;
   }
+
+  @include desktop {
+    margin-bottom: 5rem;
+  }
 }
 
 h3 {
