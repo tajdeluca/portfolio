@@ -46,3 +46,39 @@ body.no-gradients {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--headingFontFamily);
 }
+
+h1 {
+  font-size: 2rem;
+
+  @include tablet {
+    font-size: 3rem;
+  }
+
+  @include widescreen {
+    font-size: 4rem;
+  }
+}
+
+h2 {
+  font-size: 1.5rem;
+
+  @include tablet {
+    font-size: 2.25rem;
+  }
+
+  @include widescreen {
+    font-size: 3rem;
+  }
+}
+
+h3 {
+  font-size: 1.25rem;
+
+  @include tablet {
+    font-size: 1.5rem;
+  }
+
+  @include widescreen {
+    font-size: 1.75rem;
+  }
+}

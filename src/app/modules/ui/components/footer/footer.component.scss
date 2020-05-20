@@ -13,8 +13,8 @@
     padding-top: 10rem;
   }
 
-  @include tablet {
-    padding-top: 12.5rem;
+  @include widescreen {
+    padding-top: 16.5rem;
   }
 }
 
@@ -40,6 +40,11 @@
   @include desktop {
     height: 10rem;
     top: -5rem;
+  }
+
+  @include widescreen {
+    height: 16rem;
+    top: -8rem;
   }
 }
 
