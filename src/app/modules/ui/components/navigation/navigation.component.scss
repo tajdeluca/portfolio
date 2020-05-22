@@ -20,7 +20,39 @@ nav {
   }
 
   &.is-scrolling {
-    background: var(--headerBackground);
+    background: var(--navigationBackground);
     border-bottom: 1px solid rgba(#3A3A3A, 0.5);
+  }
+}
+
+:host-context(.cwt-digital) {
+  a {
+    color: #3A3A3A;
+  }
+
+  nav.is-scrolling {
+    background: var(--cwtBackground);
+  }
+}
+
+:host-context(.zen3-uk) {
+  nav.is-scrolling {
+    background: var(--zen3Background);
+  }
+}
+
+:host-context(.holidaytaxis) {
+  nav.is-scrolling {
+    background: var(--htxBackground);
+  }
+}
+
+:host-context(.into-university-partnerships) {
+  a {
+    color: #3A3A3A;
+  }
+
+  nav.is-scrolling {
+    background: var(--iupBackground);
   }
 }

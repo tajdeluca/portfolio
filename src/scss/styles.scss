@@ -6,6 +6,8 @@
 @import "fonts";
 
 :root {
+  /* Navigation */
+  --navigationBackground: linear-gradient(134deg, #3023AE, #C86DD7);
   /* Header */
   --headerBackground: linear-gradient(134deg, #3023AE, #C86DD7);
   /* Jobs */
@@ -26,6 +28,8 @@
 }
 
 body.no-gradients {
+  /* Navigation */
+  --navigationBackground: #3023AE;
   /* Header */
   --headerBackground: #3023AE;
   /* Jobs */
