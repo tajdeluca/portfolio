@@ -13,6 +13,7 @@ export class PastExperienceComponent implements OnInit {
     'PHP',
     'AngularJS',
     'jQuery',
+    'VueJS',
   ];
 
   constructor() { }
