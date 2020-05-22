@@ -8,6 +8,7 @@ import { LottieModule } from 'ngx-lottie';
 import player from 'lottie-web';
 import { RouterModule } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
+import { StripeDividerComponent } from './components/stripe-divider/stripe-divider.component';
 
 export function playerFactory() {
   return player;
@@ -19,7 +20,8 @@ export function playerFactory() {
     FooterComponent,
     BadgeComponent,
     IconComponent,
-    HeaderComponent
+    HeaderComponent,
+    StripeDividerComponent
   ],
   imports: [
     CommonModule,
@@ -32,6 +34,7 @@ export function playerFactory() {
     BadgeComponent,
     IconComponent,
     HeaderComponent,
+    StripeDividerComponent,
   ]
 })
 export class UiModule {
