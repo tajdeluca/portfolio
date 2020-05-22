@@ -16,12 +16,11 @@ header {
 
   @include tablet {
     padding-bottom: 12rem;
-    padding-top: 12rem;
+    padding-top: 10rem;
   }
 
   @include widescreen {
     padding-bottom: 16em;
-    padding-top: 14rem;
   }
 
   h1 {
