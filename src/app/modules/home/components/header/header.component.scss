@@ -3,17 +3,25 @@
 
 header {
   align-items: center;
+  background: var(--headerBackground);
   display: flex;
   flex-direction: column;
-  height: 16rem;
   justify-content: center;
+  padding-bottom: 10rem;
   padding-left: 1rem;
   padding-right: 1rem;
+  padding-top: 8rem;
   position: relative;
   text-align: center;
 
   @include tablet {
-    height: 28.75rem;
+    padding-bottom: 12rem;
+    padding-top: 12rem;
+  }
+
+  @include widescreen {
+    padding-bottom: 16em;
+    padding-top: 14rem;
   }
 
   h1 {

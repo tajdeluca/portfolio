@@ -4,18 +4,20 @@
 :host {
   display: flex;
   flex-direction: column;
-  margin-bottom: 2.5rem;
+  margin-bottom: 6rem;
+  margin-top: -4rem;
 
   @include tablet {
-    margin-bottom: 3rem;
-  }
-
-  @include desktop {
     margin-bottom: 6rem;
   }
 
+  @include desktop {
+    margin-bottom: 8rem;
+  }
+
   @include widescreen {
-    margin-bottom: 9rem;
+    margin-bottom: 8rem;
+    margin-top: -8rem;
   }
 }
 

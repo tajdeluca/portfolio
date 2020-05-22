@@ -2,50 +2,26 @@
 @import "bulma/sass/utilities/_all";
 
 :host {
-  background: var(--footerBackground);
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  padding-top: 8rem;
+  padding-top: 10rem;
   position: relative;
 
   @include tablet {
-    padding-top: 10rem;
-  }
-
-  @include widescreen {
-    padding-top: 16.5rem;
+    padding-top: 12.5rem;
   }
 }
 
 .stripe {
-  background: #ffffff;
-  height: 8vh;
-  left: -3vw;
+  background: var(--footerBackground);
+  height: 130%;
+  left: -10vw;
   position: absolute;
-  top: -1.45rem;
+  top: 30%;
   transform: rotate(-5deg);
-  width: 106vw;
-
-  @media screen and (min-width: 540px) and (max-width: $tablet - 1px) {
-    height: 9vh;
-    top: -2.4rem;
-  }
-
-  @include tablet {
-    height: 8.5rem;
-    top: -5rem;
-  }
-
-  @include desktop {
-    height: 10rem;
-    top: -5rem;
-  }
-
-  @include widescreen {
-    height: 16rem;
-    top: -8rem;
-  }
+  width: 120vw;
+  z-index: -1;
 }
 
 h2 {

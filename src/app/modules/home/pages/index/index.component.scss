@@ -4,24 +4,6 @@
 .header-container {
   overflow: hidden;
   position: relative;
-
-  .background {
-    background: var(--headerBackground);
-    height: 100vh;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100vw;
-    z-index: -1;
-
-    @include tablet {
-      height: 75vh;
-    }
-
-    @include widescreen {
-      height: 65vh;
-    }
-  }
 }
 
 h2 {
