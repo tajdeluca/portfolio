@@ -7,13 +7,20 @@ import { IconComponent } from './components/icon/icon.component';
 import { LottieModule } from 'ngx-lottie';
 import player from 'lottie-web';
 import { RouterModule } from '@angular/router';
+import { HeaderComponent } from './components/header/header.component';
 
 export function playerFactory() {
   return player;
 }
 
 @NgModule({
-  declarations: [NavigationComponent, FooterComponent, BadgeComponent, IconComponent],
+  declarations: [
+    NavigationComponent,
+    FooterComponent,
+    BadgeComponent,
+    IconComponent,
+    HeaderComponent
+  ],
   imports: [
     CommonModule,
     LottieModule.forRoot({ player: playerFactory }),
@@ -24,6 +31,7 @@ export function playerFactory() {
     FooterComponent,
     BadgeComponent,
     IconComponent,
+    HeaderComponent,
   ]
 })
 export class UiModule { }

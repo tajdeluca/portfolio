@@ -8,6 +8,9 @@ import { Meta, Title } from '@angular/platform-browser';
 })
 export class IndexComponent implements OnInit {
 
+  pageHeadingOne = 'Hi there! I\'m Taj.';
+  pageHeadingTwo = 'But you can call me a <span class="nowrap">Front-End</span> wizard.';
+
   constructor(
     private metaService: Meta,
     private titleService: Title,
