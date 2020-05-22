@@ -23,11 +23,39 @@ header {
     padding-bottom: 16em;
   }
 
-  h1 {
+  h1, h2 {
     color: #ffffff;
   }
+}
 
-  h2 {
-    color: #ffffff;
+:host-context(.cwt-digital) {
+  header {
+    background: var(--cwtBackground);
+
+    h1, h2 {
+      color: #3A3A3A;
+    }
+  }
+}
+
+:host-context(.zen3-uk) {
+  header {
+    background: var(--zen3Background);
+  }
+}
+
+:host-context(.holidaytaxis) {
+  header {
+    background: var(--htxBackground);
+  }
+}
+
+:host-context(.into-university-partnerships) {
+  header {
+    background: var(--iupBackground);
+
+    h1, h2 {
+      color: #3A3A3A;
+    }
   }
 }
