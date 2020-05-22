@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -34,4 +34,11 @@ export function playerFactory() {
     HeaderComponent,
   ]
 })
-export class UiModule { }
+export class UiModule {
+  constructor(@Optional() @SkipSelf() parentModule?: UiModule) {
+    if (parentModule) {
+      throw new Error(
+        'UiModule is already loaded. Import it in the AppModule only');
+    }
+  }
+}

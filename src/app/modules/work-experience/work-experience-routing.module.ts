@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { CwtDigitalComponent } from './components/cwt-digital/cwt-digital.component';
+import { CwtDigitalComponent } from './pages/cwt-digital/cwt-digital.component';
 
 
 const routes: Routes = [

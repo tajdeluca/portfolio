@@ -7,7 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CwtDigitalComponent implements OnInit {
 
-  constructor() { }
+  pageHeadingOne = 'CWT Digital';
+  pageHeadingTwo = 'My very first job, at a small digital agency based in Brighton';
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
