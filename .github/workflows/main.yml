@@ -46,7 +46,12 @@ jobs:
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         AWS_REGION: 'eu-west-1'   # optional: defaults to us-east-1
         SOURCE_DIR: 'dist/portfolio'      # optional: defaults to entire repository
-    # Install Python, pip and s3cmd
+    # Install Python
+    - name: Set up Python 3.8
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+    # Install pip and s3cmd
     - name: s3cmd Setup
       run: |
         python -m pip install --upgrade pip
