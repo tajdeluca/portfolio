@@ -58,7 +58,7 @@ jobs:
         pip install s3cmd
     # Update S3 Cache Control settings so assets are cached for 30 days on browsers...
     - name: S3 Cache Control
-      run: s3cmd --verbose --access_key="${{ secrets.AWS_ACCESS_KEY_ID }}" --secret_key="${{ secrets.AWS_SECRET_ACCESS_KEY }}" --region="eu-west-1" --recursive modify --add-header="Cache-Control:max-age=2592000" --exclude "*.html" --exclude "*.ico" s3://${{ secrets.AWS_S3_BUCKET }}/
+      run: s3cmd --verbose --debug --access_key="${{ secrets.AWS_ACCESS_KEY_ID }}" --secret_key="${{ secrets.AWS_SECRET_ACCESS_KEY }}" --region="eu-west-1" --recursive modify --add-header="Cache-Control:max-age=2592000" --exclude "*.html" --exclude "*.ico" s3://${{ secrets.AWS_S3_BUCKET }}/
     # Invalidate Cloudfront
     - name: Invalidate CloudFront Caches
       uses: chetan/invalidate-cloudfront-action@master
