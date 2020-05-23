@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class Zen3UkComponent implements OnInit {
 
   pageHeadingOne = 'Zen3 UK';
-  pageHeadingTwo = 'My second job, at a much smaller branch based in Brighton';
+  pageHeadingTwo = 'Front-End Architect';
 
   constructor() { }
 

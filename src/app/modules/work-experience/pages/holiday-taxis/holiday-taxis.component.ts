@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class HolidayTaxisComponent implements OnInit {
 
   pageHeadingOne = 'HolidayTaxis';
-  pageHeadingTwo = 'My third job, at a travel company based in Brighton';
+  pageHeadingTwo = 'Senior Front-End Developer';
 
   constructor() { }
 

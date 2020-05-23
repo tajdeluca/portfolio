@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class CwtDigitalComponent implements OnInit {
 
   pageHeadingOne = 'CWT Digital';
-  pageHeadingTwo = 'My very first job, at a small digital agency based in Brighton';
+  pageHeadingTwo = 'From Web Developer to Front-End Architect';
 
   constructor() {
   }
