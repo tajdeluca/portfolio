@@ -46,14 +46,18 @@ jobs:
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         AWS_REGION: 'eu-west-1'   # optional: defaults to us-east-1
         SOURCE_DIR: 'dist/portfolio'      # optional: defaults to entire repository
+    # Install Python, pip and s3cmd
+    - name: s3cmd Setup
+      run: |
+        python -m pip install --upgrade pip
+        pip install s3cmd
     # Update S3 Cache Control settings so assets are cached for 30 days on browsers...
     - name: S3 Cache Control
-      uses: jusbrasil/github-action-s3cmd@1.0.0
-      with:
-        args: --recursive modify --add-header='Cache-Control:max-age=2592000' --exclude '*.html' --exclude '*.ico' s3://${{ secrets.AWS_S3_BUCKET }}/
+      run: s3cmd --recursive modify --add-header='Cache-Control:max-age=2592000' --exclude '*.html' --exclude '*.ico' s3://${{ secrets.AWS_S3_BUCKET }}/
       env:
-        ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        SECRET_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_REGION: 'eu-west-1'
     # Invalidate Cloudfront
     - name: Invalidate CloudFront Caches
       uses: chetan/invalidate-cloudfront-action@master
