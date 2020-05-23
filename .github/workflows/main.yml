@@ -30,11 +30,11 @@ jobs:
     # Install dependencies
     - name: NPM CI
       run: npm ci
-    
+
     # Angular Build
-    - name: Angular Build 
+    - name: Angular Build
       run: npm run build -- --prod --sourceMap=false
-    
+
     # Now deploy to S3!
     - name: S3 Sync
       uses: jakejarvis/s3-sync-action@v0.5.1
@@ -46,3 +46,11 @@ jobs:
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         AWS_REGION: 'eu-west-1'   # optional: defaults to us-east-1
         SOURCE_DIR: 'dist/portfolio'      # optional: defaults to entire repository
+    # Update S3 Cache Control settings so assets are cached for 30 days on browsers...
+    - name: S3 Cache Control
+      uses: jusbrasil/github-action-s3cmd@1.0.0
+      with:
+        args: --recursive modify --add-header='Cache-Control:max-age=2592000' --exclude '*.html' --exclude '*.ico' s3://${{ secrets.AWS_S3_BUCKET }}/
+      env:
+        ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        SECRET_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
