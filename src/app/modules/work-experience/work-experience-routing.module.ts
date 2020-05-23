@@ -9,34 +9,29 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 const routes: Routes = [
   {
-    path: 'work-experience',
-    children: [
-      {
-        path: 'cwt-digital',
-        component: CwtDigitalComponent,
-      },
-      {
-        path: 'zen3-uk',
-        component: Zen3UkComponent,
-      },
-      {
-        path: 'holidaytaxis',
-        component: HolidayTaxisComponent,
-      },
-      {
-        path: 'into-university-partnerships',
-        component: IntoUniversityPartnershipsComponent,
-      },
-      {
-        path: '',
-        redirectTo: 'cwt-digital',
-        pathMatch: 'full'
-      },
-      {
-        path: '**',
-        component: NotFoundComponent,
-      }
-    ],
+    path: 'cwt-digital',
+    component: CwtDigitalComponent,
+  },
+  {
+    path: 'zen3-uk',
+    component: Zen3UkComponent,
+  },
+  {
+    path: 'holidaytaxis',
+    component: HolidayTaxisComponent,
+  },
+  {
+    path: 'into-university-partnerships',
+    component: IntoUniversityPartnershipsComponent,
+  },
+  {
+    path: '',
+    redirectTo: 'cwt-digital',
+    pathMatch: 'full'
+  },
+  {
+    path: '**',
+    component: NotFoundComponent,
   }
 ];
 
