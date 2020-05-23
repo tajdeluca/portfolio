@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class IntoUniversityPartnershipsComponent implements OnInit {
 
   pageHeadingOne = 'INTO University Partnerships';
-  pageHeadingTwo = 'My current job, which is currently based at home because of Covid-19!';
+  pageHeadingTwo = 'Web Developer';
 
   constructor() { }
 
