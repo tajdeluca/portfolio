@@ -7,11 +7,12 @@ import { RouterModule } from '@angular/router';
 import { Zen3UkComponent } from './pages/zen3-uk/zen3-uk.component';
 import { HolidayTaxisComponent } from './pages/holiday-taxis/holiday-taxis.component';
 import { IntoUniversityPartnershipsComponent } from './pages/into-university-partnerships/into-university-partnerships.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 
 
 @NgModule({
-  declarations: [CwtDigitalComponent, Zen3UkComponent, HolidayTaxisComponent, IntoUniversityPartnershipsComponent],
+  declarations: [CwtDigitalComponent, Zen3UkComponent, HolidayTaxisComponent, IntoUniversityPartnershipsComponent, NotFoundComponent],
   imports: [
     CommonModule,
     WorkExperienceRoutingModule,
