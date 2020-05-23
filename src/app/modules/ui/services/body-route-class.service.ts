@@ -10,7 +10,7 @@ export class BodyRouteClassService {
   private renderer: Renderer2;
   private previousClass: string = null;
 
-  constructor(rendererFactory: RendererFactory2, @Inject(DOCUMENT) private document) {
+  constructor(rendererFactory: RendererFactory2, @Inject(DOCUMENT) private document: Document) {
     this.renderer = rendererFactory.createRenderer(null, null);
   }
 

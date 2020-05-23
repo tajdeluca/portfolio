@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { fromEvent } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-navigation',
@@ -14,9 +15,17 @@ export class NavigationComponent implements OnInit {
     shareReplay(1),
   );
 
-  constructor() { }
+  constructor(
+    @Inject(DOCUMENT) private document: Document
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  scrollToContact() {
+    this.document.getElementById('contact').scrollIntoView({
+      behavior: 'smooth',
+    });
   }
 
 }

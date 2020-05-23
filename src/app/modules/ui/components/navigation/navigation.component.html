@@ -1,5 +1,5 @@
 <nav [ngClass]="{'is-scrolling': scrollingPage$ | async}">
   <a [routerLink]="['/']">Home</a>
   <a [routerLink]="['/']" fragment="workExperience">Work Experience</a>
-  <a [routerLink]="['/']" fragment="contact">Get in touch</a>
+  <a (click)="scrollToContact()" (keyup.space)="scrollToContact()">Get in touch</a>
 </nav>
