@@ -32,7 +32,8 @@ jobs:
       run: npm ci
     
     # Angular Build
-    - name: npm run build -- --prod --sourceMap=false
+    - name: Angular Build 
+      run: npm run build -- --prod --sourceMap=false
     
     # Now deploy to S3!
     - name: S3 Sync
