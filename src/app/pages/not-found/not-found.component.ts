@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PageMetaService } from 'src/app/modules/ui/services/page-meta.service';
 
 @Component({
   selector: 'app-not-found',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NotFoundComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private pageMetaService: PageMetaService,
+  ) { }
 
   ngOnInit(): void {
+    this.pageMetaService.updateTitle(`I haven't found a way to make that yet...`);
+    this.pageMetaService.updateDescription('You seem to have found something that doesn\'t exist!');
   }
 
 }
