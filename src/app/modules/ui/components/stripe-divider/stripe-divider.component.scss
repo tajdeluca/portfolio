@@ -1,3 +1,6 @@
+@import "bulma-variables";
+@import "bulma/sass/utilities/_all";
+
 :host {
   background: #ffffff;
   display: flex;
@@ -7,4 +10,10 @@
   transform: rotate(-5deg);
   width: 106vw;
   z-index: 0;
+
+  @include widescreen {
+    height: 16rem;
+    margin-bottom: -3rem;
+    margin-top: -8rem;
+  }
 }
