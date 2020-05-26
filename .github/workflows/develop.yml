@@ -35,6 +35,13 @@ jobs:
     - name: Angular Build
       run: npm run build -- --configuration=beta --sourceMap=false
 
+    # Copy robots.txt across...
+    - name: Copy robots.txt
+      uses: canastro/copy-file-action@master
+      with:
+        source: "src/robots.beta.txt"
+        target: "dist/portfolio/robots.txt"
+
     # Now deploy to S3!
     - name: S3 Sync
       uses: jakejarvis/s3-sync-action@v0.5.1
