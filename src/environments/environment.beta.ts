@@ -1,4 +1,4 @@
 export const environment = {
-  betaMode: false,
+  betaMode: true,
   production: true
 };
