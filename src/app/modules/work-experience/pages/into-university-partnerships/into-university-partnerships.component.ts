@@ -9,7 +9,7 @@ import { PageMetaService } from 'src/app/modules/ui/services/page-meta.service';
 export class IntoUniversityPartnershipsComponent implements OnInit {
 
   pageHeadingOne = 'INTO University Partnerships';
-  pageHeadingTwo = 'Web Developer';
+  pageHeadingTwo = 'Software Engineer';
 
   constructor(
     private pageMetaService: PageMetaService,
