@@ -38,6 +38,14 @@ header {
   }
 }
 
+:host-context(.no-gradients.cwt-digital) {
+  header {
+    h1, h2 {
+      color: #000000;
+    }
+  }
+}
+
 :host-context(.zen3-uk) {
   header {
     background: var(--zen3Background);
@@ -56,6 +64,14 @@ header {
 
     h1, h2 {
       color: #3A3A3A;
+    }
+  }
+}
+
+:host-context(.no-gradients.into-university-partnerships) {
+  header {
+    h1, h2 {
+      color: #000000;
     }
   }
 }

@@ -35,6 +35,12 @@ nav {
   }
 }
 
+:host-context(.no-gradients.cwt-digital) {
+  a {
+    color: #000000;
+  }
+}
+
 :host-context(.zen3-uk) {
   nav.is-scrolling {
     background: var(--zen3Background);
@@ -54,5 +60,11 @@ nav {
 
   nav.is-scrolling {
     background: var(--iupBackground);
+  }
+}
+
+:host-context(.no-gradients.into-university-partnerships) {
+  a {
+    color: #000000;
   }
 }

@@ -72,3 +72,11 @@ h3 {
     color: #ffffff;
   }
 }
+
+:host-context(.no-gradients) {
+  .job {
+    &.cwt, &.iup {
+      color: #000000;
+    }
+  }
+}
