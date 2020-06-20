@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { BodyRouteClassService } from './modules/ui/services/body-route-class.service';
@@ -10,13 +10,10 @@ import { BodyRouteClassService } from './modules/ui/services/body-route-class.se
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit, OnDestroy {
-  title = 'portfolio';
-
   private destroy$ = new Subject<boolean>();
 
   constructor(
     private router: Router,
-    private activatedRoute: ActivatedRoute,
     private bodyRouteClassService: BodyRouteClassService,
   ) {}
 
