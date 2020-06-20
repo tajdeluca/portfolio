@@ -8,6 +8,7 @@
 
 h2 {
   margin-bottom: 2rem;
+  margin-top: -2rem;
   text-align: center;
 
   @include tablet {
@@ -18,6 +19,7 @@ h2 {
 .skills-container {
   display: flex;
   flex-direction: column;
+  margin-bottom: 2rem;
 
   @include desktop {
     flex-direction: row;
