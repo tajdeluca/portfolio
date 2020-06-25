@@ -14,8 +14,11 @@
 }
 
 div {
+  align-content: center;
   border-radius: var(--iconSize);
+  display: flex;
   height: var(--iconSize);
+  justify-content: center;
   width: var(--iconSize);
 
   &.proficiency {
@@ -28,5 +31,9 @@ div {
 
   &.past-tools {
     background: var(--pastToolsBackground);
+  }
+
+  img {
+    width: 50%;
   }
 }
