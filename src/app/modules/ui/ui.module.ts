@@ -4,15 +4,10 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { FooterComponent } from './components/footer/footer.component';
 import { BadgeComponent } from './components/badge/badge.component';
 import { IconComponent } from './components/icon/icon.component';
-import { LottieModule } from 'ngx-lottie';
-import player from 'lottie-web';
 import { RouterModule } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
 import { StripeDividerComponent } from './components/stripe-divider/stripe-divider.component';
 
-export function playerFactory() {
-  return player;
-}
 
 @NgModule({
   declarations: [
@@ -25,7 +20,6 @@ export function playerFactory() {
   ],
   imports: [
     CommonModule,
-    LottieModule.forRoot({ player: playerFactory }),
     RouterModule,
   ],
   exports: [

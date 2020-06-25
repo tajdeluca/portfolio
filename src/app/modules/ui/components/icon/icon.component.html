@@ -1,5 +1,5 @@
 <div [className]="backgroundStyle" aria-hidden="true">
-  <ng-lottie *ngIf="iconStyle === 'wand'" [options]="wandOptions"></ng-lottie>
-  <ng-lottie *ngIf="iconStyle === 'present'" [options]="giftOptions"></ng-lottie>
-  <ng-lottie *ngIf="iconStyle === 'past'" [options]="clockOptions"></ng-lottie>
+  <img *ngIf="iconStyle === 'wand'" src="assets/icons/wand with rays-editing.svg">
+  <img *ngIf="iconStyle === 'present'" src="assets/icons/gift-object.svg">
+  <img *ngIf="iconStyle === 'past'" src="assets/icons/history-signs.svg">
 </div>
