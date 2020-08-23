@@ -35,6 +35,14 @@ jobs:
     - name: Nuxt Generate
       run: npm run generate --fail-on-error
 
+    # Cypress Test
+    - name: Cypress run
+      uses: cypress-io/github-action@v2
+      with:
+        config-file: cypress.json
+        start: npm start
+        wait-on: 'http://localhost:3000'
+
     # Rename robots.txt...
     - name: Rename robots.txt
       run: mv dist/robots.beta.txt dist/robots.txt
