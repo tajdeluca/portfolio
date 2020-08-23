@@ -12,7 +12,9 @@
   "dependencies": {
     "@nuxt/typescript-runtime": "^1.0.0",
     "concurrently": "^5.3.0",
-    "nuxt": "^2.14.0"
+    "nuxt": "^2.14.0",
+    "typeface-raleway": "0.0.75",
+    "typeface-zilla-slab": "0.0.72"
   },
   "devDependencies": {
     "@nuxt/typescript-build": "^2.0.2",
