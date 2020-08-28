@@ -1,47 +1,35 @@
 @import "typeface-raleway/index.css";
 @import "typeface-zilla-slab/index.css";
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
 html, body {
   margin: 0;
   padding: 0;
 }
 
 :root {
-  font-size: 16px;
+  --base-font-size: 16px;
+  --heading-font-family: "Zilla Slab",
+    BlinkMacSystemFont,
+    -apple-system,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial", sans-serif;
+  font-size: var(--base-font-size);
   line-height: 1.5;
 }
 
-/* // Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) {
-  :root {
-    font-size: 20px;
-  }
-}
-
-/* // Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) {
-  :root {
-    font-size: 24px;
-  }
-}
-
-/* // Large devices (desktops, 992px and up) */
-@media (min-width: 992px) {
-  :root {
-    font-size: 28px;
-  }
-}
-
-/* // Extra large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {
-  :root {
-    font-size: 32px;
-  }
-}
-
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Zilla Slab", BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-family: var(--heading-font-family);
   font-weight: normal;
+  margin: 0;
+  transition: font-size 250ms ease-in-out;
 }
 
 h1 {
@@ -54,4 +42,44 @@ h2 {
 
 h3 {
   font-size: 1.25rem;
+}
+
+/* // Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  h3 {
+    font-size: 1.75rem;
+  }
+}
+
+/* // Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  h1 {
+    font-size: 3rem;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+  }
+
+  h3 {
+    font-size: 2.25rem;
+  }
+}
+
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+
+}
+
+/* // Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+
 }

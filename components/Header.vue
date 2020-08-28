@@ -46,7 +46,7 @@ export default Vue.extend({
   computed: {
     cssVars(): HeaderCSSVariables {
       return {
-        '--header-background': `linear-gradient(60deg, ${this.headerBackgroundGradientStartColour} 0%, ${this.headerBackgroundGradientEndColour} 100%)`,
+        '--header-background': `linear-gradient(134deg, ${this.headerBackgroundGradientStartColour} 0%, ${this.headerBackgroundGradientEndColour} 100%)`,
         '--header-foreground': this.headerForegroundColour,
       }
     }
@@ -62,6 +62,7 @@ export default Vue.extend({
   color: var(--header-foreground);
   display: flex;
   flex-direction: column;
+  margin-bottom: 1.5rem;
   position: relative;
   text-align: center;
 }
