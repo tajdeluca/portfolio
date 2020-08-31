@@ -8,78 +8,120 @@
   margin: 0;
 }
 
-html, body {
-  margin: 0;
-  padding: 0;
-}
-
 :root {
   --base-font-size: 16px;
+  --body-font-family: "Raleway",
+    BlinkMacSystemFont,
+    -apple-system,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial", sans-serif;
+  --body-foreground-colour: #3a3a3a;
   --heading-font-family: "Zilla Slab",
     BlinkMacSystemFont,
     -apple-system,
     "Helvetica Neue",
     "Helvetica",
     "Arial", sans-serif;
+
   font-size: var(--base-font-size);
   line-height: 1.5;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: var(--body-foreground-colour);
+  font-family: var(--body-font-family);
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--heading-font-family);
   font-weight: normal;
+  line-height: 1;
   margin: 0;
   transition: font-size 250ms ease-in-out;
 }
 
 h1 {
-  font-size: 2rem;
+  font-size: 2.5rem;
+  margin-bottom: 1.25rem;
 }
 
 h2 {
-  font-size: 1.5rem;
+  font-size: 2rem;
+  margin-bottom: 1.25rem;
 }
 
 h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.25rem;
+}
+
+h3 + article h4 {
+  margin-top: 1rem;
+}
+
+h4 {
   font-size: 1.25rem;
+  margin-bottom: 0.25rem;
+}
+
+p, ul {
+  margin-bottom: 0.5rem;
+}
+
+hr {
+  margin-bottom: 1.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1.5rem;
+}
+
+.container {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }
 
 /* // Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
-  h1 {
-    font-size: 2.5rem;
+  :root {
+    --base-font-size: 18px;
   }
 
-  h2 {
-    font-size: 2rem;
-  }
-
-  h3 {
-    font-size: 1.75rem;
+  .container {
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 }
 
 /* // Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
-  h1 {
-    font-size: 3rem;
+  :root {
+    --base-font-size: 20px;
   }
 
-  h2 {
-    font-size: 2.5rem;
-  }
-
-  h3 {
-    font-size: 2.25rem;
+  .container {
+    padding-left: 4rem;
+    padding-right: 4rem;
   }
 }
 
 /* // Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
-
+  .container {
+    padding-left: 8rem;
+    padding-right: 8rem;
+  }
 }
 
 /* // Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
-
+  .container {
+    padding-left: 16rem;
+    padding-right: 16rem;
+  }
 }
