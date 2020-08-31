@@ -22,6 +22,7 @@
 import Vue from 'vue'
 
 type HeaderCSSVariables = {
+  '--animation-speed-multiplier'?: number;
   '--header-background'?: string;
   '--header-foreground'?: string;
 };
@@ -30,6 +31,10 @@ export default Vue.extend({
   props: {
     heading: String,
     subheading: String,
+    animationSpeedMultiplier: {
+      type: Number,
+      default: 2.5,
+    },
     headerBackgroundGradientStartColour: {
       type: String,
       default: 'rgba(84, 58, 183, 1)',
@@ -37,6 +42,10 @@ export default Vue.extend({
     headerBackgroundGradientEndColour: {
       type: String,
       default: 'rgba(0, 172, 193, 1)',
+    },
+    headerBackgroundGradientDrection: {
+      type: Number,
+      default: 134,
     },
     headerForegroundColour: {
       type: String,
@@ -46,7 +55,8 @@ export default Vue.extend({
   computed: {
     cssVars(): HeaderCSSVariables {
       return {
-        '--header-background': `linear-gradient(134deg, ${this.headerBackgroundGradientStartColour} 0%, ${this.headerBackgroundGradientEndColour} 100%)`,
+        '--animation-speed-multiplier': this.animationSpeedMultiplier,
+        '--header-background': `linear-gradient(${this.headerBackgroundGradientDrection}deg, ${this.headerBackgroundGradientStartColour} 0%, ${this.headerBackgroundGradientEndColour} 100%)`,
         '--header-foreground': this.headerForegroundColour,
       }
     }
@@ -55,14 +65,13 @@ export default Vue.extend({
 </script>
 
 <style scoped>
-@import "typeface-zilla-slab/index.css";
 
 .header {
   background: var(--header-background);
   color: var(--header-foreground);
   display: flex;
   flex-direction: column;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
   position: relative;
   text-align: center;
 }
@@ -101,20 +110,20 @@ export default Vue.extend({
   animation: move-forever 25s cubic-bezier(.55, .5, .45, .5) infinite;
 }
 .parallax>use:nth-child(1) {
-  animation-delay: -2s;
-  animation-duration: 7s;
+  animation-delay: calc(-2s * var(--animation-speed-multiplier));
+  animation-duration: calc(7s * var(--animation-speed-multiplier));
 }
 .parallax>use:nth-child(2) {
-  animation-delay: -3s;
-  animation-duration: 10s;
+  animation-delay: calc(-3s * var(--animation-speed-multiplier));
+  animation-duration: calc(10s * var(--animation-speed-multiplier));
 }
 .parallax>use:nth-child(3) {
-  animation-delay: -4s;
-  animation-duration: 13s;
+  animation-delay: calc(-4s * var(--animation-speed-multiplier));
+  animation-duration: calc(13s * var(--animation-speed-multiplier));
 }
 .parallax>use:nth-child(4) {
-  animation-delay: -5s;
-  animation-duration: 20s;
+  animation-delay: calc(-5s * var(--animation-speed-multiplier));
+  animation-duration: calc(20s * var(--animation-speed-multiplier));
 }
 @keyframes move-forever {
   0% {
