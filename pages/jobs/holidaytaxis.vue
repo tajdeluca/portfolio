@@ -5,7 +5,7 @@
         subheading="Senior Front-End Developer"
         header-background-gradient-start-colour="#003087"
         header-background-gradient-end-colour="#0961a6"
-        header-background-gradient-direction="34" />
+        header-background-gradient-direction="134" />
     </header>
     <article class="container">
       <nuxt-content :document="page" />
@@ -18,7 +18,7 @@ import Vue from 'vue';
 
 export default Vue.extend({
   head: {
-    title: 'Taj Deluca - Front End Wizard - Jobs - HolidayTaxis',
+    title: 'Taj Deluca - My tenure @ HolidayTaxis',
     meta: [
       { hid: 'description', name: 'description', content: 'A summary of my time at HolidayTaxis.' }
     ]

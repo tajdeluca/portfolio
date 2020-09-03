@@ -9,10 +9,10 @@
             <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
         </defs>
         <g class="parallax">
-            <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
-            <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
-            <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
-            <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+            <use xlink:href="#gentle-wave" x="48" y="0" />
+            <use xlink:href="#gentle-wave" x="48" y="3" />
+            <use xlink:href="#gentle-wave" x="48" y="5" />
+            <use xlink:href="#gentle-wave" x="48" y="7" />
         </g>
     </svg>
   </div>
@@ -43,9 +43,9 @@ export default Vue.extend({
       type: String,
       default: 'rgba(0, 172, 193, 1)',
     },
-    headerBackgroundGradientDrection: {
-      type: Number,
-      default: 134,
+    headerBackgroundGradientDirection: {
+      type: String,
+      default: '134',
     },
     headerForegroundColour: {
       type: String,
@@ -56,7 +56,7 @@ export default Vue.extend({
     cssVars(): HeaderCSSVariables {
       return {
         '--animation-speed-multiplier': this.animationSpeedMultiplier,
-        '--header-background': `linear-gradient(${this.headerBackgroundGradientDrection}deg, ${this.headerBackgroundGradientStartColour} 0%, ${this.headerBackgroundGradientEndColour} 100%)`,
+        '--header-background': `linear-gradient(${this.headerBackgroundGradientDirection}deg, ${this.headerBackgroundGradientStartColour} 0%, ${this.headerBackgroundGradientEndColour} 100%)`,
         '--header-foreground': this.headerForegroundColour,
       }
     }
@@ -78,9 +78,18 @@ export default Vue.extend({
 
 .inner-header {
   height: 45vh;
+  margin-bottom: 3rem;
+  margin-top: 3rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
   width: 100%;
-  margin: 0;
-  padding: 3rem;
+}
+
+@media (min-width: 576px) {
+  .inner-header {
+    margin-bottom: 0;
+    margin-top: 0;
+  }
 }
 
 .flex {
@@ -95,6 +104,7 @@ export default Vue.extend({
 .waves {
   display: flex;
   height: 4rem;
+  margin-bottom: -1px;
   width: 100%;
 }
 
@@ -106,25 +116,37 @@ export default Vue.extend({
 }
 
 /* Animation */
-.parallax>use {
+.parallax > use {
   animation: move-forever 25s cubic-bezier(.55, .5, .45, .5) infinite;
 }
-.parallax>use:nth-child(1) {
+
+.parallax > use:nth-child(1) {
   animation-delay: calc(-2s * var(--animation-speed-multiplier));
   animation-duration: calc(7s * var(--animation-speed-multiplier));
+  fill: var(--body-background);
+  opacity: 0.7;
 }
-.parallax>use:nth-child(2) {
+
+.parallax > use:nth-child(2) {
   animation-delay: calc(-3s * var(--animation-speed-multiplier));
   animation-duration: calc(10s * var(--animation-speed-multiplier));
+  fill: var(--body-background);
+  opacity: 0.5;
 }
-.parallax>use:nth-child(3) {
+
+.parallax > use:nth-child(3) {
   animation-delay: calc(-4s * var(--animation-speed-multiplier));
   animation-duration: calc(13s * var(--animation-speed-multiplier));
+  fill: var(--body-background);
+  opacity: 0.3;
 }
-.parallax>use:nth-child(4) {
+
+.parallax > use:nth-child(4) {
   animation-delay: calc(-5s * var(--animation-speed-multiplier));
   animation-duration: calc(20s * var(--animation-speed-multiplier));
+  fill: var(--body-background);
 }
+
 @keyframes move-forever {
   0% {
     transform: translate3d(-90px, 0, 0);

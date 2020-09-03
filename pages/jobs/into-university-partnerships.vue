@@ -3,10 +3,9 @@
     <header>
       <Header heading="INTO University Partnerships"
         subheading="Software Engineer"
-        header-background-gradient-start-colour="#ed1c24"
-        header-background-gradient-end-colour="#f39c9f"
-        header-background-gradient-direction="34"
-        header-foreground-colour="var(--body-foreground-colour)" />
+        header-background-gradient-start-colour="#7A0000"
+        header-background-gradient-end-colour="#ed1c24"
+        header-background-gradient-direction="134" />
     </header>
     <article class="container">
       <nuxt-content :document="page" />
@@ -19,7 +18,7 @@ import Vue from 'vue';
 
 export default Vue.extend({
   head: {
-    title: 'Taj Deluca - Front End Wizard - Jobs - INTO University Partnerships',
+    title: 'Taj Deluca - My tenure @ INTO University Partnerships',
     meta: [
       { hid: 'description', name: 'description', content: 'A summary of my time at INTO University Partnerships.' }
     ]

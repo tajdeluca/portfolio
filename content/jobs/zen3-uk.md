@@ -13,7 +13,7 @@ Some of the notable things I worked on were:
 ---
 
 ### What I worked with and the skills I developed
-An extension of what I worked on at <nuxt-link to="/jobs/cwt-digital">CWT Digital</nuxt-link>, here are my takeaways:
+An extension of what I worked on at <nuxt-link to="/jobs/cwt-digital/">CWT Digital</nuxt-link>, here are my takeaways:
 
 - Front-End Architecture
 - Customer Support Skills
