@@ -10,6 +10,7 @@
 
 :root {
   --base-font-size: 16px;
+  --body-background: #ffffff;
   --body-font-family: "Raleway",
     BlinkMacSystemFont,
     -apple-system,
@@ -23,9 +24,20 @@
     "Helvetica Neue",
     "Helvetica",
     "Arial", sans-serif;
+  --link-default-colour: #3273dc;
+  --link-visited-colour: #3273dc;
 
   font-size: var(--base-font-size);
   line-height: 1.5;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --body-background: #1a1a1a;
+    --body-foreground-colour: rgba(255, 255, 255, 0.87);
+    --link-default-colour: #b3d4fc;
+    --link-visited-colour: #b3d4fc;
+  }
 }
 
 html, body {
@@ -34,8 +46,22 @@ html, body {
 }
 
 body {
+  background: var(--body-background);
   color: var(--body-foreground-colour);
   font-family: var(--body-font-family);
+}
+
+a, a:link {
+  color: var(--link-default-colour);
+  text-decoration: none;
+}
+
+a:focus, a:hover {
+  text-decoration: underline;
+}
+
+a:visited {
+  color: var(--link-visited-colour);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -47,17 +73,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 2.5rem;
+  font-size: 3rem;
   margin-bottom: 1.25rem;
 }
 
 h2 {
-  font-size: 2rem;
+  font-size: 2.5rem;
   margin-bottom: 1.25rem;
 }
 
 h3 {
-  font-size: 1.5rem;
+  font-size: 2rem;
   margin-bottom: 0.25rem;
 }
 
@@ -66,12 +92,13 @@ h3 + article h4 {
 }
 
 h4 {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   margin-bottom: 0.25rem;
 }
 
 p, ul {
   margin-bottom: 0.5rem;
+  transition: font-size 250ms ease-in-out;
 }
 
 hr {
@@ -82,19 +109,16 @@ hr {
 }
 
 .container {
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  margin: 0 auto;
+  max-width: 1080px;
 }
 
 /* // Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
   :root {
     --base-font-size: 18px;
-  }
-
-  .container {
-    padding-left: 2rem;
-    padding-right: 2rem;
   }
 }
 
@@ -103,25 +127,25 @@ hr {
   :root {
     --base-font-size: 20px;
   }
-
-  .container {
-    padding-left: 4rem;
-    padding-right: 4rem;
-  }
 }
 
 /* // Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
-  .container {
-    padding-left: 8rem;
-    padding-right: 8rem;
+  :root {
+    --base-font-size: 20px;
   }
 }
 
 /* // Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
-  .container {
-    padding-left: 16rem;
-    padding-right: 16rem;
+  :root {
+    --base-font-size: 20px;
+  }
+}
+
+/* // Extra EXTRA large devices (extra large desktops, 2560px and up) */
+@media (min-width: 2560px) {
+  :root {
+    --base-font-size: 28px;
   }
 }
