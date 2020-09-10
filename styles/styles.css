@@ -48,7 +48,10 @@ html, body {
 body {
   background: var(--body-background);
   color: var(--body-foreground-colour);
+  display: flex;
+  flex-direction: column;
   font-family: var(--body-font-family);
+  min-height: 100vh;
 }
 
 a, a:link {
@@ -113,6 +116,12 @@ hr {
   padding-right: 2rem;
   margin: 0 auto;
   max-width: 1080px;
+}
+
+#__nuxt, #__layout {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 /* // Small devices (landscape phones, 576px and up) */
