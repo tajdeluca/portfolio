@@ -34,7 +34,8 @@ export default Vue.extend({
 </script>
 
 <style scoped>
-.nuxt-content-container >>> hr {
-  background: linear-gradient(134deg, #003087 0%, #0961a6 100%);
+.container {
+  --horizontal-rule-start-colour: #003087;
+  --horizontal-rule-end-colour: #0961a6;
 }
 </style>

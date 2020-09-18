@@ -54,7 +54,6 @@
         <h4>About the knowledge I can share</h4>
         <p>Occasionally I like to write down a bit more about my achievements, or perhaps just my thoughts on particular topics.
           If you're interested in that you can <nuxt-link to="blog">find my blog here.</nuxt-link></p>
-        <hr>
       </article>
 
     </div>
@@ -79,7 +78,8 @@ article + article {
   margin-top: 1rem;
 }
 
-hr {
-  background: linear-gradient(134deg, #3023ae 0%, #c86dd7 100%);
+.container {
+  --horizontal-rule-start-colour: #3023ae;
+  --horizontal-rule-end-colour: #c86dd7;
 }
 </style>

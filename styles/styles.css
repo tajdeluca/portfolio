@@ -24,6 +24,8 @@
     "Helvetica Neue",
     "Helvetica",
     "Arial", sans-serif;
+  --horizontal-rule-start-colour: var(--body-foreground-colour);
+  --horizontal-rule-end-colour: var(--body-foreground-colour);
   --link-default-colour: #3273dc;
   --link-visited-colour: #3273dc;
 
@@ -109,7 +111,7 @@ ul {
 }
 
 hr {
-  background: var(--body-foreground-colour);
+  background: linear-gradient(134deg, var(--horizontal-rule-start-colour) 0%, var(--horizontal-rule-end-colour) 100%);
   border: none;
   border-radius: 1rem;
   height: 0.25rem;
