@@ -4,10 +4,22 @@
       <Nuxt />
     </div>
     <footer>
-      <small>Copyright &copy; Taj Deluca 2020</small>
+      <small>Copyright &copy; Taj Deluca {{ currentDate.getFullYear() }}</small>
     </footer>
   </div>
 </template>
+
+<script lang="ts">
+import Vue from 'vue'
+
+export default Vue.extend({
+  data() {
+    return {
+      currentDate: new Date(),
+    };
+  }
+});
+</script>
 
 <style scoped>
 .parent {

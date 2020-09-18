@@ -1,20 +1,39 @@
 <template>
-  <div class="header" :style="cssVars">
-    <div class="inner-header flex">
+  <div>
+    <div class="header" :style="cssVars">
+      <div class="inner-header container flex">
         <h1>{{ heading }}</h1>
         <h2>{{ subheading }}</h2>
-    </div>
-    <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      </div>
+      <svg
+        class="waves"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        viewBox="0 24 150 28"
+        preserveAspectRatio="none"
+        shape-rendering="auto"
+      >
         <defs>
-            <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+          <path
+            id="gentle-wave"
+            d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"
+          />
         </defs>
         <g class="parallax">
-            <use xlink:href="#gentle-wave" x="48" y="0" />
-            <use xlink:href="#gentle-wave" x="48" y="3" />
-            <use xlink:href="#gentle-wave" x="48" y="5" />
-            <use xlink:href="#gentle-wave" x="48" y="7" />
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
         </g>
-    </svg>
+      </svg>
+    </div>
+    <nav class="container">
+      <ul>
+        <li>
+          <nuxt-link v-if="showHomeLink" to="/">Back to the homepage.</nuxt-link>
+        </li>
+      </ul>
+    </nav>
   </div>
 </template>
 
@@ -22,10 +41,10 @@
 import Vue from 'vue'
 
 type HeaderCSSVariables = {
-  '--animation-speed-multiplier'?: number;
-  '--header-background'?: string;
-  '--header-foreground'?: string;
-};
+  '--animation-speed-multiplier'?: number
+  '--header-background'?: string
+  '--header-foreground'?: string
+}
 
 export default Vue.extend({
   props: {
@@ -50,7 +69,11 @@ export default Vue.extend({
     headerForegroundColour: {
       type: String,
       default: '#ffffff',
-    }
+    },
+    showHomeLink: {
+      type: Boolean,
+      default: true,
+    },
   },
   computed: {
     cssVars(): HeaderCSSVariables {
@@ -59,13 +82,12 @@ export default Vue.extend({
         '--header-background': `linear-gradient(${this.headerBackgroundGradientDirection}deg, ${this.headerBackgroundGradientStartColour} 0%, ${this.headerBackgroundGradientEndColour} 100%)`,
         '--header-foreground': this.headerForegroundColour,
       }
-    }
-  }
-});
+    },
+  },
+})
 </script>
 
 <style scoped>
-
 .header {
   background: var(--header-background);
   color: var(--header-foreground);
@@ -77,11 +99,9 @@ export default Vue.extend({
 }
 
 .inner-header {
-  height: 45vh;
-  margin-bottom: 3rem;
+  margin-bottom: 1.5rem;
   margin-top: 3rem;
-  padding-left: 2rem;
-  padding-right: 2rem;
+  min-height: 45vh;
   width: 100%;
 }
 
@@ -117,7 +137,7 @@ export default Vue.extend({
 
 /* Animation */
 .parallax > use {
-  animation: move-forever 25s cubic-bezier(.55, .5, .45, .5) infinite;
+  animation: move-forever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
 }
 
 .parallax > use:nth-child(1) {
@@ -164,5 +184,18 @@ export default Vue.extend({
   .content {
     height: 30vh;
   }
+}
+
+nav {
+  margin-bottom: 1.5rem;
+  margin-top: 1.5rem;
+  text-align: left;
+  width: 100%;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
 }
 </style>

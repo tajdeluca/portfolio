@@ -2,7 +2,7 @@
   <div>
     <header>
       <Header heading="INTO University Partnerships"
-        subheading="Software Engineer"
+        subheading="Senior Software Engineer"
         header-background-gradient-start-colour="#7A0000"
         header-background-gradient-end-colour="#ed1c24"
         header-background-gradient-direction="134" />
@@ -32,3 +32,9 @@ export default Vue.extend({
   }
 });
 </script>
+
+<style scoped>
+.nuxt-content-container >>> hr {
+  background: linear-gradient(134deg, #7A0000 0%, #ed1c24 100%);
+}
+</style>

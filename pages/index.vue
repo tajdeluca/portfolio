@@ -2,17 +2,20 @@
   <div>
     <header>
       <Header heading="Hi there! I'm Taj."
-        subheading="But you can call me a Front-End wizard."
+        subheading="I'm on a mission to make the web better for everyone."
         header-background-gradient-start-colour="#3023ae"
-        header-background-gradient-end-colour="#c86dd7" />
+        header-background-gradient-end-colour="#c86dd7"
+        v-bind:show-home-link="false" />
     </header>
     <div class="container">
-      <h3>A little bit about me...</h3>
       <article>
-        <p>A (primarily) front-end developer born and raised in the United Kingdom. My goal is to make the web a better place for everyone, one
+        <h3>A little bit about me...</h3>
+        <p>A sofware engineer born and raised in the United Kingdom. My goal is to make the web a better place for everyone, one
           website at a time. Whether that's by optimising content delivery or creating an accessible experience I find that I love all aspects
           of web development!
         </p>
+        <p>The skills I have cover a wide array of things such as cloud platforms (AWS, Azure, etc.), front-end languages
+          (JavaScript, TypeScript, etc.) and back-end languages (C#, PHP, etc.).</p>
         <p>If you'd like to get in touch, you can contact me on <a href="https://www.linkedin.com/in/taj-deluca-678bbb80" rel="noopener">LinkedIn</a> or <a href="https://twitter.com/TajDeluca" rel="noopener">Twitter</a>.</p>
         <hr />
       </article>
@@ -31,7 +34,7 @@
       </article>
       <article>
         <h4>HolidayTaxis</h4>
-        <p>Another Brighton based travel company with offices around the world. Here I was able to work with several notable travel
+        <p>A Brighton based travel company with offices around the world. Here I was able to work with several notable travel
           companies to implement custom whitelabel solutions.</p>
         <p><nuxt-link to="jobs/holidaytaxis/">Learn more about my time at HolidayTaxis.</nuxt-link></p>
       </article>
@@ -40,6 +43,17 @@
         <p>My breakout role into a completely different industry. Focusing on higher education, INTO gives me a chance to flex my front-end skills
           while learning about the .NET Core tech stack.</p>
         <p><nuxt-link to="jobs/into-university-partnerships/">Learn more about my time at INTO University Partnerships.</nuxt-link></p>
+        <hr>
+      </article>
+      <article>
+        <h3>Wait, there's more...</h3>
+        <h4>About me</h4>
+        <p>It's hard to put into words what I'm capable of. Spreading it out all over the place might be a bit confusing and the introduction
+          on this page, I think, is way too small to get an idea of that! You can <nuxt-link to="about">learn more about me here</nuxt-link> to get
+          a better idea of who I am and what I can do.</p>
+        <h4>About the knowledge I can share</h4>
+        <p>Occasionally I like to write down a bit more about my achievements, or perhaps just my thoughts on particular topics.
+          If you're interested in that you can <nuxt-link to="blog">find my blog here.</nuxt-link></p>
         <hr>
       </article>
 
@@ -63,5 +77,9 @@ export default Vue.extend({
 <style scoped>
 article + article {
   margin-top: 1rem;
+}
+
+hr {
+  background: linear-gradient(134deg, #3023ae 0%, #c86dd7 100%);
 }
 </style>
