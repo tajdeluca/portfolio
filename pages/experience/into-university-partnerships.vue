@@ -1,7 +1,7 @@
 <template>
   <div>
     <header>
-      <Header heading="INTO University Partnerships"
+      <Banner heading="INTO University Partnerships"
         subheading="Senior Software Engineer"
         header-background-gradient-start-colour="#7A0000"
         header-background-gradient-end-colour="#ed1c24"

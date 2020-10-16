@@ -1,7 +1,7 @@
 <template>
   <div>
     <header>
-      <Header heading="Hi there! I'm Taj."
+      <Banner heading="Hi there! I'm Taj."
         subheading="I'm on a mission to make the web better for everyone."
         header-background-gradient-start-colour="#3023ae"
         header-background-gradient-end-colour="#c86dd7"
@@ -24,29 +24,29 @@
         <h4>CWT Digital</h4>
         <p>A small agency that was based in Brighton. This was my first major foray into the commerical world of web development.
           Here I was able to progress from a humble Web Developer to a Front-End Architect while learning quite a bit about the travel industry.</p>
-        <p><nuxt-link to="jobs/cwt-digital/">Learn more about my time at CWT Digital.</nuxt-link></p>
+        <p><nuxt-link to="experience/cwt-digital/">Learn more about my time at CWT Digital.</nuxt-link></p>
       </article>
       <article>
         <h4>Zen3 UK</h4>
         <p>A part of a larger organisation, but a much smaller team, there was definitely more of a client-facing focus here! It was much of a continuation of
           my role at CWT Digital, but with more of a focus on working with an offshore team.</p>
-        <p><nuxt-link to="jobs/zen3-uk/">Learn more about my time at Zen3 UK.</nuxt-link></p>
+        <p><nuxt-link to="experience/zen3-uk/">Learn more about my time at Zen3 UK.</nuxt-link></p>
       </article>
       <article>
         <h4>HolidayTaxis</h4>
         <p>A Brighton based travel company with offices around the world. Here I was able to work with several notable travel
           companies to implement custom whitelabel solutions.</p>
-        <p><nuxt-link to="jobs/holidaytaxis/">Learn more about my time at HolidayTaxis.</nuxt-link></p>
+        <p><nuxt-link to="experience/holidaytaxis/">Learn more about my time at HolidayTaxis.</nuxt-link></p>
       </article>
       <article>
         <h4>INTO University Partnerships</h4>
         <p>My breakout role into a completely different industry. Focusing on higher education, INTO gives me a chance to flex my front-end skills
           while learning about the .NET Core tech stack.</p>
-        <p><nuxt-link to="jobs/into-university-partnerships/">Learn more about my time at INTO University Partnerships.</nuxt-link></p>
+        <p><nuxt-link to="experience/into-university-partnerships/">Learn more about my time at INTO University Partnerships.</nuxt-link></p>
         <hr>
       </article>
+      <h3>Wait, there's more...</h3>
       <article>
-        <h3>Wait, there's more...</h3>
         <h4>About me</h4>
         <p>It's hard to put into words what I'm capable of. Spreading it out all over the place might be a bit confusing and the introduction
           on this page, I think, is way too small to get an idea of that! You can <nuxt-link to="about">learn more about me here</nuxt-link> to get

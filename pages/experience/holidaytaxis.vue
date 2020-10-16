@@ -1,7 +1,7 @@
 <template>
   <div>
     <header>
-      <Header heading="HolidayTaxis"
+      <Banner heading="HolidayTaxis"
         subheading="Senior Front-End Developer"
         header-background-gradient-start-colour="#003087"
         header-background-gradient-end-colour="#0961a6"

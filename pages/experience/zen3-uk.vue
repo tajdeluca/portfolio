@@ -1,7 +1,7 @@
 <template>
   <div>
     <header>
-      <Header heading="Zen3 UK"
+      <Banner heading="Zen3 UK"
         subheading="Front-End Architect"
         header-background-gradient-start-colour="#2b5ba7"
         header-background-gradient-end-colour="#82bcea"

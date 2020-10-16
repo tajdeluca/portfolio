@@ -1,7 +1,7 @@
 <template>
   <div>
     <header>
-      <Header heading="CWT Digital"
+      <Banner heading="CWT Digital"
         subheading="From Web Developer to Front-End Architect"
         header-background-gradient-start-colour="#700000"
         header-background-gradient-end-colour="#ef4c25"
