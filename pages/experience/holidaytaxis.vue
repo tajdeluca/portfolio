@@ -24,7 +24,7 @@ export default Vue.extend({
     ]
   },
   async asyncData ({ $content }) {
-    const page = await $content('jobs/holidaytaxis').fetch()
+    const page = await $content('experience/holidaytaxis').fetch()
 
     return {
       page

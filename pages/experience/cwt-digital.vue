@@ -24,7 +24,7 @@ export default Vue.extend({
     ]
   },
   async asyncData ({ $content }) {
-    const page = await $content('jobs/cwt-digital').fetch()
+    const page = await $content('experience/cwt-digital').fetch()
 
     return {
       page
