@@ -3,7 +3,7 @@
     <div class="content">
       <Nuxt />
     </div>
-    <footer>
+    <footer class="container">
       <small>Copyright &copy; Taj Deluca {{ currentDate.getFullYear() }}</small>
     </footer>
   </div>
