@@ -9,7 +9,7 @@ gradientDirection: '134'
 ---
 
 ### Background
-My role at Zen3 UK encapsulated many of the responsibilities I had at <nuxt-link to="/jobs/cwt-digital/">CWT Digital</nuxt-link> with an increase in focus of leading the offshore team in implementing front-end solutions.
+My role at Zen3 UK encapsulated many of the responsibilities I had at <nuxt-link to="/experience/cwt-digital/">CWT Digital</nuxt-link> with an increase in focus of leading the offshore team in implementing front-end solutions.
 
 ---
 
@@ -23,7 +23,7 @@ Some of the notable things I worked on were:
 ---
 
 ### What I worked with and the skills I developed
-An extension of what I worked on at <nuxt-link to="/jobs/cwt-digital/">CWT Digital</nuxt-link>, these are the key things I developed:
+An extension of what I worked on at <nuxt-link to="/experience/cwt-digital/">CWT Digital</nuxt-link>, these are the key things I developed:
 
 - Front-End Architecture
 - Customer Support Skills
