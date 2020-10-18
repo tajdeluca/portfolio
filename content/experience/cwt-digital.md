@@ -1,3 +1,13 @@
+---
+title: CWT Digital
+description: A small agency that was based in Brighton. This was my first major foray into the commercial world of web development. Here I was able to progress from a humble Web Developer to a Front-End Architect while learning quite a bit about the travel industry.
+role: From Web Developer to Front-End Architect
+startDate: 01-06-2014
+gradientStartColour: '#700000'
+gradientEndColour:  '#ef4c25'
+gradientDirection: '134'
+---
+
 ### Background
 This being my first job, it was a brand new experience for me. Thankfully I got to work with some awesome people in a great city! I got to experience 2 and a half years of challenges, experiences and adventures within the travel industry for which I am truly grateful.
 

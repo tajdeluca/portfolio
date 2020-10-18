@@ -1,3 +1,13 @@
+---
+title: INTO University Partnerships
+description: My breakout role into a completely different industry. Focusing on higher education, INTO gives me a chance to flex my front-end skills while learning about the .NET Core tech stack.
+role: Senior Software Engineer
+startDate: 01-02-2019
+gradientStartColour: '#7A0000'
+gradientEndColour:  '#ed1c24'
+gradientDirection: '134'
+---
+
 ### Background
 My current place of work, and what a place! It was a big jump to go from the travel industry to the education sector but I'm glad I made it.
 

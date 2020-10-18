@@ -7,6 +7,7 @@
         header-background-gradient-end-colour="#4a74e2"
         v-bind:show-home-link="true" />
     </header>
+    <StickyLink linkTo="/" linkText="Back to the homepage." />
     <article class="container">
       <nuxt-content :document="page" />
     </article>

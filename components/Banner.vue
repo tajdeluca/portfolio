@@ -27,24 +27,17 @@
         </g>
       </svg>
     </div>
-    <nav class="container">
-      <ul>
-        <li>
-          <nuxt-link v-if="showHomeLink" to="/">Back to the homepage.</nuxt-link>
-        </li>
-      </ul>
-    </nav>
   </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import Vue from 'vue';
 
 type HeaderCSSVariables = {
   '--animation-speed-multiplier'?: number
   '--header-background'?: string
   '--header-foreground'?: string
-}
+};
 
 export default Vue.extend({
   props: {
@@ -184,18 +177,5 @@ export default Vue.extend({
   .content {
     height: 30vh;
   }
-}
-
-nav {
-  margin-bottom: 1.5rem;
-  margin-top: 1.5rem;
-  text-align: left;
-  width: 100%;
-}
-
-nav ul {
-  list-style: none;
-  margin: 0;
-  padding-left: 0;
 }
 </style>
