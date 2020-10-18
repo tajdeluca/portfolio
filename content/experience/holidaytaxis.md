@@ -2,7 +2,7 @@
 title: HolidayTaxis
 description: A Brighton based travel company with offices around the world. Here I was able to work with several notable travel companies to implement custom whitelabel solutions.
 role: Senior Front-End Developer
-startDate: 01-07-2017
+startDate: 2017-07-01
 gradientStartColour: '#003087'
 gradientEndColour:  '#0961a6'
 gradientDirection: '134'

@@ -2,7 +2,7 @@
 title: Zen3 UK
 description: A part of a larger organisation, but a much smaller team, there was definitely more of a client-facing focus here! It was much of a continuation of my role at CWT Digital, but with more of a focus on working with an offshore team.
 role: Front-End Architect
-startDate: 01-12-2016
+startDate: 2016-12-01
 gradientStartColour: '#2b5ba7'
 gradientEndColour:  '#82bcea'
 gradientDirection: '134'

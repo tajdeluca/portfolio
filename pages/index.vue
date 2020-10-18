@@ -20,30 +20,11 @@
         <hr />
       </article>
       <h3>I have a wide range of skills because of these companies...</h3>
-      <article>
-        <h4>CWT Digital</h4>
-        <p>A small agency that was based in Brighton. This was my first major foray into the commerical world of web development.
-          Here I was able to progress from a humble Web Developer to a Front-End Architect while learning quite a bit about the travel industry.</p>
-        <p><nuxt-link to="experience/cwt-digital/">Learn more about my time at CWT Digital.</nuxt-link></p>
-      </article>
-      <article>
-        <h4>Zen3 UK</h4>
-        <p>A part of a larger organisation, but a much smaller team, there was definitely more of a client-facing focus here! It was much of a continuation of
-          my role at CWT Digital, but with more of a focus on working with an offshore team.</p>
-        <p><nuxt-link to="experience/zen3-uk/">Learn more about my time at Zen3 UK.</nuxt-link></p>
-      </article>
-      <article>
-        <h4>HolidayTaxis</h4>
-        <p>A Brighton based travel company with offices around the world. Here I was able to work with several notable travel
-          companies to implement custom whitelabel solutions.</p>
-        <p><nuxt-link to="experience/holidaytaxis/">Learn more about my time at HolidayTaxis.</nuxt-link></p>
-      </article>
-      <article>
-        <h4>INTO University Partnerships</h4>
-        <p>My breakout role into a completely different industry. Focusing on higher education, INTO gives me a chance to flex my front-end skills
-          while learning about the .NET Core tech stack.</p>
-        <p><nuxt-link to="experience/into-university-partnerships/">Learn more about my time at INTO University Partnerships.</nuxt-link></p>
-        <hr>
+      <article v-for="(job, index) in jobs" :key="job.title">
+        <h4>{{ job.title }}</h4>
+        <p>{{ job.description }}</p>
+        <p><nuxt-link :to="`experience/${job.slug}/`">Learn more about my time at {{job.title}}.</nuxt-link></p>
+        <hr v-if="index === Object.keys(jobs).length - 1">
       </article>
       <h3>Wait, there's more...</h3>
       <article>
@@ -67,8 +48,17 @@ export default Vue.extend({
   head: {
     title: 'Taj Deluca - Front End Wizard',
     meta: [
-      { hid: 'description', name: 'description', content: 'I\'m just a developer who made his own portfolio for fun... and profit.' }
+      { hid: 'description', name: 'description', content: `A senior full stack software engineer based in the United Kingdom. I love all things web development!` }
     ]
+  },
+  async asyncData ({ $content }) {
+    const jobs = await $content(`experience`)
+      .sortBy('startDate')
+      .fetch();
+
+    return {
+      jobs
+    }
   }
 });
 </script>
