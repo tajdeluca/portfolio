@@ -1,0 +1,82 @@
+# Beta CI actions
+
+name: Beta CI
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+  push:
+    branches: [ develop ]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - uses: actions/checkout@v2
+
+    # Setup NodeJS
+    - name: Setup Node.js environment
+      uses: actions/setup-node@v1.4.2
+      with:
+        # Version Spec of the version to use.  Examples: 10.x, 10.15.1, >=10.15.0
+        node-version: '12.x' # optional, default is 10.x
+
+    # Install dependencies
+    - name: NPM CI
+      run: npm ci
+
+    # Nuxt Generate
+    - name: Nuxt Generate
+      run: npm run generate --fail-on-error
+
+    # Cypress Test
+    - name: Cypress run
+      uses: cypress-io/github-action@v2
+      with:
+        config-file: cypress.json
+        start: npm start
+        wait-on: 'http://localhost:3000'
+
+    # Rename robots.txt...
+    - name: Rename robots.txt
+      run: mv dist/robots.beta.txt dist/robots.txt
+
+    # Now deploy to S3!
+    - name: S3 Sync
+      uses: jakejarvis/s3-sync-action@v0.5.1
+      with:
+        args: --acl public-read --follow-symlinks --delete
+      env:
+        AWS_S3_BUCKET: ${{ secrets.AWS_S3_BETA_BUCKET }}
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_REGION: 'eu-west-1'   # optional: defaults to us-east-1
+        SOURCE_DIR: 'dist'      # optional: defaults to entire repository
+    # Install Python
+    - name: Set up Python 3.8
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+    # Install pip and s3cmd
+    - name: s3cmd Setup
+      run: |
+        python -m pip install --upgrade pip
+        pip install s3cmd
+    # Update S3 Cache Control settings so assets are cached for 30 days on browsers...
+    - name: S3 Cache Control
+      run: s3cmd --access_key "${{ secrets.AWS_ACCESS_KEY_ID }}" --secret_key "${{ secrets.AWS_SECRET_ACCESS_KEY }}" --region "eu-west-1" --recursive modify --add-header "Cache-Control:max-age=2592000" --exclude "*.html" --exclude "*.ico" s3://${{ secrets.AWS_S3_BETA_BUCKET }}/
+    # Invalidate Cloudfront
+    - name: Invalidate CloudFront Caches
+      uses: chetan/invalidate-cloudfront-action@master
+      env:
+        DISTRIBUTION: ${{ secrets.BETA_CLOUDFRONT_DISTRIBUTION_ID }}
+        PATHS: '/*'
+        AWS_REGION: 'eu-west-1'
+        AWS_ACCESS_KEY_ID: ${{ secrets.CLOUDFRONT_INVALIDATION_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.CLOUDFRONT_INVALIDATION_SECRET_ACCESS_KEY }}
