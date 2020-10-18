@@ -4,8 +4,7 @@
       <Banner heading="About me."
         subheading="Who I am and what I can do."
         header-background-gradient-start-colour="#633ca1"
-        header-background-gradient-end-colour="#4a74e2"
-        v-bind:show-home-link="true" />
+        header-background-gradient-end-colour="#4a74e2" />
     </header>
     <StickyLink linkTo="/" linkText="Back to the homepage." />
     <article class="container">

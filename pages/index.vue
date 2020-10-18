@@ -4,8 +4,7 @@
       <Banner heading="Hi there! I'm Taj."
         subheading="I'm on a mission to make the web better for everyone."
         header-background-gradient-start-colour="#3023ae"
-        header-background-gradient-end-colour="#c86dd7"
-        v-bind:show-home-link="false" />
+        header-background-gradient-end-colour="#c86dd7" />
     </header>
     <div class="container">
       <article>
@@ -20,7 +19,7 @@
         <hr />
       </article>
       <h3>I have a wide range of skills because of these companies...</h3>
-      <article v-for="(job, index) in jobs" :key="job.title">
+      <article v-for="(job, index) in jobs" :key="index">
         <h4>{{ job.title }}</h4>
         <p>{{ job.description }}</p>
         <p><nuxt-link :to="`experience/${job.slug}/`">Learn more about my time at {{job.title}}.</nuxt-link></p>
