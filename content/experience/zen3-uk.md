@@ -9,7 +9,7 @@ gradientDirection: '134'
 ---
 
 ### Background
-My second role which more more architecurally focused with more of an emphasis on communicating with clients.
+My role at Zen3 UK encapsulated many of the responsibilities I had at <nuxt-link to="/jobs/cwt-digital/">CWT Digital</nuxt-link> with an increase in focus of leading the offshore team in implementing front-end solutions.
 
 ---
 
@@ -23,7 +23,7 @@ Some of the notable things I worked on were:
 ---
 
 ### What I worked with and the skills I developed
-An extension of what I worked on at <nuxt-link to="/jobs/cwt-digital/">CWT Digital</nuxt-link>, here are my takeaways:
+An extension of what I worked on at <nuxt-link to="/jobs/cwt-digital/">CWT Digital</nuxt-link>, these are the key things I developed:
 
 - Front-End Architecture
 - Customer Support Skills
@@ -33,6 +33,8 @@ An extension of what I worked on at <nuxt-link to="/jobs/cwt-digital/">CWT Digit
 ---
 
 ### Crowning achievements
-- Collaborating with overseas team to coordinate allocation of work.
-- More direct customer support, talking with clients to resolve critical issues.
-- 24/7 out of hours support, being able to diagnose and repair issues remotely.
+- Formulated estimates for new front-end tasks
+- Formatted and presented tickets to the offshore team for development
+- Aided in the migration of pre-existing clients to Amazon Web Services
+- Trained the offshore development team to further their understanding as well as streamline development
+- Created interactive prototypes to demonstrate potential functionality for future concepts

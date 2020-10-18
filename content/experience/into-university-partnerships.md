@@ -36,7 +36,11 @@ INTO University Partnerships really gives me the opportunity to flex my front-en
 ---
 
 ### Crowning achievements
-- Optimisations to build pipelines to speed up development.
-- Working closely with junior developers to increase their pool of knowledge.
-- Working closely with the wider team to ensure the delivery of a great quality product.
-- Developing a simple translation pipeline to enable our web apps to be localised in a streamlined manner.
+- Aiding in the high pressure, time sensitive, delivery of a high profile product within the organisation, the partner portal
+- Mentoring less experienced  developers and coming up with training projects to enable them to grasp various concepts such as continuous integration
+- Working with product owners and key stakeholders to translate business requirements into technical designs and requirements
+- Leading development planning sessions to ensure that any knowledge gaps and misunderstandings can be cleared up before starting on sprint work
+- Streamlining repetitive development processes to prevent breaking changes to occur
+  - For example adding basic validation checks to pull requests for things like linting
+- Identifying bottlenecks in sprint processes and addressing them by applying technical fixes or working through them with the wider team
+- Sharing knowledge by writing Confluence articles, giving presentations and updating the team via Slack (or more recently, Microsoft Teams)

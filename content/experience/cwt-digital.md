@@ -11,6 +11,8 @@ gradientDirection: '134'
 ### Background
 This being my first job, it was a brand new experience for me. Thankfully I got to work with some awesome people in a great city! I got to experience 2 and a half years of challenges, experiences and adventures within the travel industry for which I am truly grateful.
 
+My role here evolved from being a web developer to becoming a front-end architect involved with several responsibilities such as selecting software frameworks for use in future projects, I.E. AngularJS and Foundation for Sites, defining the best code practices to use and collaborating with the lead back-end developer in order to understand any limitations on the new, Drupal-based, platform we were continuing forward with.
+
 ---
 
 ### The projects I worked on
