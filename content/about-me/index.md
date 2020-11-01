@@ -53,8 +53,8 @@ With that I find that I really excel in:
 
 In the past I've had the opportunity to work regularly with these:
 - AWS
-  - For example, S3, CloudFront, Route53, EC2, IAM, DynamodDB and more.
-  - This website is actually hosted on an S3 bucket and served through CloudFront via Route53, for example!
+  - For example, S3, CloudFront, Route53, EC2, IAM, DynamoDB and more.
+  - This website is actually hosted on an S3 bucket and served through CloudFront via Route53!
 - Jenkins
   - As a continuous integration service
 - PHP
