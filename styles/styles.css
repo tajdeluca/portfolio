@@ -101,7 +101,7 @@ h4 {
   margin-bottom: 0.25rem;
 }
 
-p, ul {
+p, ul, ol {
   margin-bottom: 0.5rem;
   transition: font-size 250ms ease-in-out;
 }
@@ -110,11 +110,11 @@ p ~ p {
   margin-bottom: 1rem;
 }
 
-ul {
+ul, ol {
   padding-left: 1.2em;
 }
 
-ul li > ul {
+ul li > ul, ol li > ul {
   margin-bottom: 0;
 }
 
