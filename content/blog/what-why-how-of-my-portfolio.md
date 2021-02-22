@@ -4,6 +4,7 @@ subtitle: My thoughts and learnings after rebuilding my site (again)...
 description: The start of my journey from radio silence to a small social media presence. An overview into why I created this website and the tools and frameworks I used to achieve my goal.
 gradientStartColour: '#c86dd7'
 gradientEndColour:  '#3023ae'
+createdAt: 2020-11-01
 ---
 
 ### It's hard to market yourself when all your work is private.
