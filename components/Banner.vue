@@ -98,6 +98,14 @@ export default Vue.extend({
   width: 100%;
 }
 
+h1 {
+  font-size: 250%;
+}
+
+h2 {
+  font-size: 150%;
+}
+
 @media (min-width: 576px) {
   .inner-header {
     margin-bottom: 0;

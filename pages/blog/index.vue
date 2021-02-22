@@ -16,6 +16,7 @@
     <div v-if="articles.length > 0" class="container">
       <article v-for="(article, index) in articles" :key="index">
         <h3>{{ article.title }}</h3>
+        <p><small>Written on <time :datetime="getCreatedDateAsDateTime(article)">{{ getCreatedDate(article) }}</time> with an estimated reading time of {{ getReadingTime(article) }}.</small></p>
         <p>{{ article.description }}</p>
         <p><nuxt-link :to="`blog/${article.slug}/`">Read article.</nuxt-link></p>
         <hr v-if="index !== Object.keys(articles).length - 1">
@@ -26,6 +27,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import { format } from 'date-fns';
 
 export default Vue.extend({
   head: {
@@ -41,6 +43,18 @@ export default Vue.extend({
 
     return {
       articles
+    }
+  },
+  methods: {
+    getCreatedDateAsDateTime(article: any) {
+      return format(new Date(article.createdAt), 'yyyy-MM-dd');
+    },
+    getCreatedDate(article: any) {
+      return format(new Date(article.createdAt), 'do MMMM yyyy');
+    },
+    getReadingTime(article: any) {
+      const readingTimeInMinutes = Math.ceil(article.readingTime / 60 / 60 / 60);
+      return `${readingTimeInMinutes} minutes`;
     }
   }
 });
