@@ -70,4 +70,8 @@ article + article {
   --horizontal-rule-start-colour: #3023ae;
   --horizontal-rule-end-colour: #c86dd7;
 }
+
+h3 {
+  margin-bottom: 0.25rem;
+}
 </style>
