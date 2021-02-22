@@ -1,7 +1,7 @@
 export default interface PortfolioBlogPost {
   // Nuxt Content fields
   slug?: string;
-  createdAt: Date;
+  createdAt: Date|string;
   updatedAt?: Date;
   // Custom fields defined pre-render
   readingTime: number;
