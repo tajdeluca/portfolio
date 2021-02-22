@@ -40,7 +40,7 @@ Oh and occasionally I help out a friend by maintaining the software for his phot
 ---
 
 ### This is what I'm good at.
-I've worked a few professional jobs now and I have to say that I've amassed quite the wealth of experience from them! The most valuable thing I can get from a job (aside from the means to live a comfortable life 🤑🤑🤑) is knowledge. That might sound cliche but I strongly believe that if you make the same mistake twice you're doing something wrong.
+I've worked a few professional jobs now and I have to say that I've amassed quite the wealth of experience from them! The most valuable thing I can get from a job (aside from the means to live a comfortable life) is knowledge. That might sound cliche but I strongly believe that if you make the same mistake twice you're doing something wrong.
 
 With that I find that I really excel in:
 - JavaScript
