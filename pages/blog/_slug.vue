@@ -15,6 +15,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import PortfolioBlogPost from 'types/portfolio-blog-post';
 
 export default Vue.extend({
   methods: {
@@ -31,11 +32,13 @@ export default Vue.extend({
     }
   },
   data() {
-    const post = {
+    const post: PortfolioBlogPost = {
       title: '',
       description: '',
       gradientStartColour: '#c86dd7',
       gradientEndColour: '#3023ae',
+      readingTime: 0,
+      createdAt: new Date(),
     };
 
     return {

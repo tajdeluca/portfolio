@@ -28,6 +28,7 @@
 <script lang="ts">
 import Vue from 'vue';
 import { format } from 'date-fns';
+import PortfolioBlogPost from '~/types/portfolio-blog-post';
 
 export default Vue.extend({
   head: {
@@ -46,13 +47,13 @@ export default Vue.extend({
     }
   },
   methods: {
-    getCreatedDateAsDateTime(article: any) {
+    getCreatedDateAsDateTime(article: PortfolioBlogPost) {
       return format(new Date(article.createdAt), 'yyyy-MM-dd');
     },
-    getCreatedDate(article: any) {
+    getCreatedDate(article: PortfolioBlogPost) {
       return format(new Date(article.createdAt), 'do MMMM yyyy');
     },
-    getReadingTime(article: any) {
+    getReadingTime(article: PortfolioBlogPost) {
       const readingTimeInMinutes = Math.ceil(article.readingTime / 60 / 60 / 60);
       return `${readingTimeInMinutes} minutes`;
     }
