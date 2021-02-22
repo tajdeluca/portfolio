@@ -81,4 +81,4 @@ No I don't think so. Unless you pay my mortgage off... then I might consider it.
 Yes, but only if it were as sparse as possible. Quite enjoying not getting ill regularly and not commuting!
 
 #### Would I work in London?
-Yes, absolutely! This has the caveat of a mostly work-from-home environment though, even post-pandemic. 4 hours a day of commuting just seems like a waste of life to me...
+Yes, absolutely! This has the caveat of a mostly work-from-home environment though, even post-pandemic. I should note that this means 3 days in the office, 2 days out of it. I think this would apply anywhere I go now really.
