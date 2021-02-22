@@ -18,7 +18,7 @@
         <h3>{{ article.title }}</h3>
         <p><small>Written on <time :datetime="getCreatedDateAsDateTime(article)">{{ getCreatedDate(article) }}</time> with an estimated reading time of {{ getReadingTime(article) }}.</small></p>
         <p>{{ article.description }}</p>
-        <p><nuxt-link :to="`blog/${article.slug}/`">Read article.</nuxt-link></p>
+        <p><nuxt-link :to="`/blog/${article.slug}/`">Read article.</nuxt-link></p>
         <hr v-if="index !== Object.keys(articles).length - 1">
       </article>
     </div>
