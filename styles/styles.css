@@ -142,7 +142,7 @@ hr {
   margin-top: 1.5rem;
 }
 
-pre[class*="language-"] {
+.nuxt-content-highlight {
   margin-bottom: 1rem;
 }
 
