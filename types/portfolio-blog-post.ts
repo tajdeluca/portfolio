@@ -6,6 +6,7 @@ export default interface PortfolioBlogPost {
   // Custom fields defined pre-render
   readingTime: number;
   // Custom Fields defined in markdown
+  customSlug: string;
   title: string;
   subtitle?: string;
   description: string;

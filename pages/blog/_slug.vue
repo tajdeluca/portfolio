@@ -33,6 +33,7 @@ export default Vue.extend({
   },
   data() {
     const post: PortfolioBlogPost = {
+      customSlug: '',
       title: '',
       description: '',
       gradientStartColour: '#c86dd7',
@@ -48,7 +49,7 @@ export default Vue.extend({
   async asyncData ({ params, error, $content }) {
     const slug = params.slug;
     const post = await $content(`blog`)
-      .where({ slug: slug })
+      .where({ customSlug: slug })
       .fetch();
 
     if(post.length === 0) {
