@@ -63,5 +63,14 @@ export default {
   */
   build: {
     extractCSS: true,
+  },
+  hooks: {
+    'content:file:beforeInsert': (document) => {
+      if (document.extension === '.md') {
+        const { time } = require('reading-time')(document.text)
+
+        document.readingTime = time
+      }
+    }
   }
 }

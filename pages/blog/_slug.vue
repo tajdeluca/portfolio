@@ -2,12 +2,12 @@
   <div>
     <header>
       <Banner v-bind:heading="post.title"
-        v-bind:subheading="post.description"
-        header-background-gradient-start-colour="#3023ae"
-        header-background-gradient-end-colour="#c86dd7" />
+        v-bind:subheading="post.subtitle"
+        v-bind:header-background-gradient-start-colour="post.gradientStartColour"
+        v-bind:header-background-gradient-end-colour="post.gradientEndColour" />
     </header>
-    <StickyLink linkTo="/blog" linkText="Back to the article index." />
-    <article class="container">
+    <StickyLink linkTo="/blog" linkText="Back to the article index."></StickyLink>
+    <article class="container" :style="getHorizontalRuleTheme(post.gradientStartColour, post.gradientEndColour)">
       <nuxt-content :document="post" />
     </article>
   </div>
@@ -15,8 +15,14 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import PortfolioBlogPost from 'types/portfolio-blog-post';
 
 export default Vue.extend({
+  methods: {
+    getHorizontalRuleTheme(gradientStartColour: string, gradientEndColour: string) {
+      return `--horizontal-rule-start-colour: ${gradientStartColour}; --horizontal-rule-end-colour: ${gradientEndColour}`;
+    }
+  },
   head(): any {
     return {
       title: `Taj Deluca - Front End Wizard - Gradient Shift - ${this.post.title}`,
@@ -26,9 +32,13 @@ export default Vue.extend({
     }
   },
   data() {
-    const post = {
+    const post: PortfolioBlogPost = {
       title: '',
       description: '',
+      gradientStartColour: '#c86dd7',
+      gradientEndColour: '#3023ae',
+      readingTime: 0,
+      createdAt: new Date(),
     };
 
     return {
@@ -49,7 +59,7 @@ export default Vue.extend({
     return {
       post: post[0]
     }
-  }
+  },
 });
 </script>
 

@@ -5,6 +5,9 @@
         <nuxt-link v-bind:to="linkTo">{{ linkText }}</nuxt-link>
       </li>
     </ul>
+    <div>
+      <slot></slot>
+    </div>
   </nav>
 </template>
 
@@ -28,6 +31,9 @@ export default Vue.extend({
 <style scoped>
 nav {
   background: var(--body-background);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   margin-top: -1.5rem;
   padding-bottom: 1.5rem;
   padding-top: 1.5rem;
