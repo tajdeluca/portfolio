@@ -9,7 +9,7 @@
     <div class="container">
       <article>
         <h3>A little bit about me...</h3>
-        <p>A sofware engineer born and raised in the United Kingdom. My goal is to make the web a better place for everyone, one
+        <p>A software engineer born and raised in the United Kingdom. My goal is to make the web a better place for everyone, one
           website at a time. Whether that's by optimising content delivery or creating an accessible experience I find that I love all aspects
           of web development!
         </p>
