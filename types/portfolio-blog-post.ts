@@ -12,4 +12,5 @@ export default interface PortfolioBlogPost {
   description: string;
   gradientStartColour: string;
   gradientEndColour: string;
+  tags?: PortfolioBlogPost[];
 }

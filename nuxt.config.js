@@ -65,11 +65,19 @@ export default {
     extractCSS: true,
   },
   hooks: {
-    'content:file:beforeInsert': (document) => {
+    'content:file:beforeInsert': async (document) => {
       if (document.extension === '.md') {
-        const { time } = require('reading-time')(document.text)
+        const { time } = require('reading-time')(document.text);
+        const { $content } = require('@nuxt/content');
 
-        document.readingTime = time
+        document.readingTime = time;
+
+        if (document.dir === '/blog' && document?.tags) {
+          // Replace tags with the processed version.
+          document.tags = await $content('/blog/tags')
+            .where({ customSlug: { $in: document.tags } })
+            .fetch();
+        }
       }
     }
   }

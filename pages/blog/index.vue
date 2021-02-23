@@ -18,7 +18,13 @@
         <h3>{{ article.title }}</h3>
         <p><small>Written on <time :datetime="getCreatedDateAsDateTime(article)">{{ getCreatedDate(article) }}</time> with an estimated reading time of {{ getReadingTime(article) }}.</small></p>
         <p>{{ article.description }}</p>
-        <p><nuxt-link :to="`/blog/${article.customSlug}/`">Read article.</nuxt-link></p>
+        <div v-if="article.tags" class="tags">
+          <p><nuxt-link :to="`/blog/${article.customSlug}/`">Read article.</nuxt-link></p>
+          <small>Tags:</small> <article-tag v-for="(tag, index) in article.tags" :key="index" :tag="tag"></article-tag>
+        </div>
+        <div v-else>
+          <p><nuxt-link :to="`/blog/${article.customSlug}/`">Read article.</nuxt-link></p>
+        </div>
         <hr v-if="index !== Object.keys(articles).length - 1">
       </article>
     </div>
@@ -29,8 +35,10 @@
 import Vue from 'vue';
 import { format } from 'date-fns';
 import PortfolioBlogPost from '~/types/portfolio-blog-post';
+import ArticleTag from '~/components/ArticleTag.vue';
 
 export default Vue.extend({
+  components: { ArticleTag },
   head: {
     title: 'Taj Deluca - Front End Wizard - Gradient Shift',
     meta: [
@@ -39,7 +47,7 @@ export default Vue.extend({
   },
   async asyncData ({ $content }) {
     const articles = await $content(`blog`)
-      .sortBy('date')
+      .sortBy('createdAt', 'desc')
       .fetch();
 
     return {
@@ -73,5 +81,14 @@ article + article {
 
 h3 {
   margin-bottom: 0.25rem;
+}
+
+.tags p {
+  margin-bottom: 0.5rem;
+}
+
+.tags small {
+  display: inline-flex;
+  margin-right: 0.5rem;
 }
 </style>
