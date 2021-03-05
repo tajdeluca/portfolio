@@ -18,9 +18,9 @@
         <h3>{{ article.title }}</h3>
         <p><small>Written on <time :datetime="getCreatedDateAsDateTime(article)">{{ getCreatedDate(article) }}</time> with an estimated reading time of {{ getReadingTime(article) }}.</small></p>
         <p>{{ article.description }}</p>
-        <div v-if="article.tags" class="tags">
+        <div v-if="article.categories" class="categories">
           <p><nuxt-link :to="`/blog/${article.customSlug}/`">Read article.</nuxt-link></p>
-          <small>Tags:</small> <article-tag v-for="(tag, index) in article.tags" :key="index" :tag="tag"></article-tag>
+          <small>Categories:</small> <article-category v-for="(category, index) in article.categories" :key="index" :category="category"></article-category>
         </div>
         <div v-else>
           <p><nuxt-link :to="`/blog/${article.customSlug}/`">Read article.</nuxt-link></p>
@@ -35,10 +35,10 @@
 import Vue from 'vue';
 import { format } from 'date-fns';
 import PortfolioBlogPost from '~/types/portfolio-blog-post';
-import ArticleTag from '~/components/ArticleTag.vue';
+import ArticleCategory from '~/components/ArticleCategory.vue';
 
 export default Vue.extend({
-  components: { ArticleTag },
+  components: { ArticleCategory },
   head: {
     title: 'Taj Deluca - Front End Wizard - Gradient Shift',
     meta: [
@@ -83,11 +83,10 @@ h3 {
   margin-bottom: 0.25rem;
 }
 
-.tags p {
-  margin-bottom: 0.5rem;
+.categories p {
+  margin-bottom: 0.75rem;
 }
-
-.tags small {
+.categories small {
   display: inline-flex;
   margin-right: 0.5rem;
 }

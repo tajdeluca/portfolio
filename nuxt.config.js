@@ -1,4 +1,3 @@
-
 export default {
   /*
   ** Nuxt rendering mode
@@ -72,11 +71,15 @@ export default {
 
         document.readingTime = time;
 
-        if (document.dir === '/blog' && document?.tags) {
+        if (document.dir === '/blog' && document?.categories) {
           // Replace tags with the processed version.
-          document.tags = await $content('/blog/tags')
-            .where({ customSlug: { $in: document.tags } })
-            .fetch();
+          if (typeof $content === 'function') {
+            const fullCategories = await $content('/blog/categories')
+              .where({ customSlug: { $in: document.categories } })
+              .fetch();
+
+            document.categories = fullCategories;
+          }
         }
       }
     }

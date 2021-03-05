@@ -29,14 +29,14 @@ export default Vue.extend({
   },
   head(): any {
     return {
-      title: `Taj Deluca - Front End Wizard - Gradient Shift - Tags - ${this.tag.title}`,
+      title: `Taj Deluca - Front End Wizard - Gradient Shift - Categories - ${this.category.title}`,
       meta: [
-        { hid: 'description', name: 'description', content: this.tag.description }
+        { hid: 'description', name: 'description', content: this.category.description }
       ]
     }
   },
   data() {
-    const tag: PortfolioBlogPost = {
+    const category: PortfolioBlogPost = {
       customSlug: '',
       title: '',
       description: '',
@@ -47,17 +47,17 @@ export default Vue.extend({
     };
 
     return {
-      tag
+      category
     };
   },
   async asyncData ({ params, error, $content }) {
     const slug = params.slug;
-    const tag = await $content(`blog/tags`)
+    const tag = await $content(`blog/categories`)
       .where({ customSlug: slug })
       .fetch();
 
     if(tag.length === 0) {
-      error({ statusCode: 404, message: 'Tag not found.' });
+      error({ statusCode: 404, message: 'Category not found.' });
       return;
     }
 

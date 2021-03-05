@@ -9,6 +9,9 @@
     <StickyLink linkTo="/blog" linkText="Back to the article index."></StickyLink>
     <article class="container" :style="getHorizontalRuleTheme(post.gradientStartColour, post.gradientEndColour)">
       <nuxt-content :document="post" />
+      <hr v-if="post.categories">
+      <h3>You can also find this article in the following categories:</h3>
+      <article-category v-for="(category, id) in post.categories" :key="id" :category="category"></article-category>
     </article>
   </div>
 </template>
@@ -16,8 +19,10 @@
 <script lang="ts">
 import Vue from 'vue';
 import PortfolioBlogPost from 'types/portfolio-blog-post';
+import ArticleCategory from '~/components/ArticleCategory.vue';
 
 export default Vue.extend({
+  components: { ArticleCategory },
   methods: {
     getHorizontalRuleTheme(gradientStartColour: string, gradientEndColour: string) {
       return `--horizontal-rule-start-colour: ${gradientStartColour}; --horizontal-rule-end-colour: ${gradientEndColour}`;
