@@ -9,9 +9,11 @@
     <StickyLink linkTo="/blog" linkText="Back to the article index."></StickyLink>
     <article class="container" :style="getHorizontalRuleTheme(post.gradientStartColour, post.gradientEndColour)">
       <nuxt-content :document="post" />
-      <hr v-if="post.categories">
-      <h3>You can also find this article in the following categories:</h3>
-      <article-category v-for="(category, id) in post.categories" :key="id" :category="category"></article-category>
+      <div v-if="post.categories">
+        <hr>
+        <h3>You can also find this article in the following categories:</h3>
+        <article-category v-for="(category, id) in post.categories" :key="id" :category="category"></article-category>
+      </div>
     </article>
   </div>
 </template>
