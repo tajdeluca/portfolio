@@ -40,7 +40,7 @@ import ArticleCategory from '~/components/ArticleCategory.vue';
 export default Vue.extend({
   components: { ArticleCategory },
   head: {
-    title: 'Taj Deluca - Front End Wizard - Gradient Shift',
+    title: 'Gradient Shift - Taj Deluca - Front End Wizard',
     meta: [
       { hid: 'description', name: 'description', content: 'A series of ramblings, thoughts and perhaps even useful guides. My personal blog.' }
     ]
