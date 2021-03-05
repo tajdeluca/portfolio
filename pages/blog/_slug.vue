@@ -11,9 +11,21 @@
       <nuxt-content :document="post" />
       <div v-if="post.categories">
         <hr>
-        <h3>You can also find this article in the following categories:</h3>
+        <p>This article is part of the following categories:</p>
         <article-category v-for="(category, id) in post.categories" :key="id" :category="category"></article-category>
       </div>
+      <hr>
+      <h3>Want to continue reading?</h3>
+      <nav class="article-nav-grid">
+        <div v-if="prevArticle" class="previous-article">
+          <h4>Previous article</h4>
+          <nuxt-link :to="`/blog/${prevArticle.customSlug}`">{{ prevArticle.title }}</nuxt-link>
+        </div>
+        <div v-if="nextArticle" class="next-article">
+          <h4>Next article</h4>
+          <nuxt-link :to="`/blog/${nextArticle.customSlug}`">{{ nextArticle.title }}</nuxt-link>
+        </div>
+      </nav>
     </article>
   </div>
 </template>
@@ -55,7 +67,7 @@ export default Vue.extend({
   },
   async asyncData ({ params, error, $content }) {
     const slug = params.slug;
-    const post = await $content(`blog`)
+    const post: any = await $content(`blog`)
       .where({ customSlug: slug })
       .fetch();
 
@@ -64,8 +76,16 @@ export default Vue.extend({
       return;
     }
 
+    const [prevArticle, nextArticle] = await $content('blog')
+      .only(['title', 'customSlug'])
+      .sortBy('date')
+      .surround(post[0].slug)
+      .fetch();
+
     return {
-      post: post[0]
+      post: post[0],
+      prevArticle,
+      nextArticle
     }
   },
 });
@@ -79,5 +99,11 @@ article + article {
 .container {
   --horizontal-rule-start-colour: #3023ae;
   --horizontal-rule-end-colour: #c86dd7;
+}
+
+.article-nav-grid {
+  column-gap: 2rem;
+  display: grid;
+  grid-auto-columns: 1fr;
 }
 </style>

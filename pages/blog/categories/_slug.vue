@@ -61,8 +61,6 @@ export default Vue.extend({
       return;
     }
 
-    console.warn(category);
-
     return {
       category: category[0]
     }
