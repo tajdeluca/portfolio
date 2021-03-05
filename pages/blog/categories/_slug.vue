@@ -1,15 +1,15 @@
 <template>
   <div>
     <header>
-      <Banner v-bind:heading="tag.title"
-        v-bind:subheading="tag.subtitle"
-        v-bind:header-background-gradient-start-colour="tag.gradientStartColour"
-        v-bind:header-background-gradient-end-colour="tag.gradientEndColour" />
+      <Banner v-bind:heading="category.title"
+        v-bind:subheading="category.subtitle"
+        v-bind:header-background-gradient-start-colour="category.gradientStartColour"
+        v-bind:header-background-gradient-end-colour="category.gradientEndColour" />
     </header>
     <StickyLink linkTo="/blog" linkText="Back to the article index."></StickyLink>
     <div class="container">
       <h3>About this series</h3>
-      <p>{{ tag.description }}</p>
+      <p>{{ category.description }}</p>
     </div>
     <div class="container article-grid">
       <h3>Articles</h3>
@@ -29,7 +29,7 @@ export default Vue.extend({
   },
   head(): any {
     return {
-      title: `Taj Deluca - Front End Wizard - Gradient Shift - Categories - ${this.category.title}`,
+      title: `${this.category.title} - Categories - Gradient Shift - Taj Deluca - Front End Wizard`,
       meta: [
         { hid: 'description', name: 'description', content: this.category.description }
       ]
@@ -52,17 +52,19 @@ export default Vue.extend({
   },
   async asyncData ({ params, error, $content }) {
     const slug = params.slug;
-    const tag = await $content(`blog/categories`)
+    const category = await $content(`blog/categories`)
       .where({ customSlug: slug })
       .fetch();
 
-    if(tag.length === 0) {
+    if(category.length === 0) {
       error({ statusCode: 404, message: 'Category not found.' });
       return;
     }
 
+    console.warn(category);
+
     return {
-      tag: tag[0]
+      category: category[0]
     }
   },
 });

@@ -32,7 +32,7 @@ export default Vue.extend({
   },
   head(): any {
     return {
-      title: `Taj Deluca - Front End Wizard - Gradient Shift - ${this.post.title}`,
+      title: `${this.post.title} - Gradient Shift - Taj Deluca - Front End Wizard`,
       meta: [
         { hid: 'description', name: 'description', content: this.post.description }
       ]
