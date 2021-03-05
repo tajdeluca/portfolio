@@ -79,6 +79,8 @@ export default {
               .fetch();
 
             document.categories = fullCategories;
+          } else {
+            document.categories = null;
           }
         }
       }
