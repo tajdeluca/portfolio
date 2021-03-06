@@ -5,7 +5,7 @@ subtitle: A big picture overview of what it is and what it can do.
 description: It's an incredibly useful server side and static generation framework, but what does that mean and how does it help? Let's dive in and I'll give you the big picture overview of something all the cool developers are using.
 gradientStartColour: '#007cf0'
 gradientEndColour:  '#00dfd8'
-createdAt: 2021-02-22
+createdAt: 2021-03-06
 categories: [journey-to-kubernetes]
 ---
 
