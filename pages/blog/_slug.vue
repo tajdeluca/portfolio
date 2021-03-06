@@ -8,6 +8,7 @@
     </header>
     <StickyLink linkTo="/blog" linkText="Back to the article index."></StickyLink>
     <article class="container" :style="getHorizontalRuleTheme(post.gradientStartColour, post.gradientEndColour)">
+      <p><small>Written on <time :datetime="getCreatedDateAsDateTime(post)">{{ getCreatedDate(post) }}</time> with an estimated reading time of {{ getReadingTime(post) }}.</small></p>
       <nuxt-content :document="post" />
       <div v-if="post.categories">
         <hr>
@@ -34,13 +35,24 @@
 import Vue from 'vue';
 import PortfolioBlogPost from 'types/portfolio-blog-post';
 import ArticleCategory from '~/components/ArticleCategory.vue';
+import { format } from 'date-fns';
 
 export default Vue.extend({
   components: { ArticleCategory },
   methods: {
     getHorizontalRuleTheme(gradientStartColour: string, gradientEndColour: string) {
       return `--horizontal-rule-start-colour: ${gradientStartColour}; --horizontal-rule-end-colour: ${gradientEndColour}`;
-    }
+    },
+    getCreatedDateAsDateTime(article: PortfolioBlogPost) {
+      return format(new Date(article.createdAt), 'yyyy-MM-dd');
+    },
+    getCreatedDate(article: PortfolioBlogPost) {
+      return format(new Date(article.createdAt), 'do MMMM yyyy');
+    },
+    getReadingTime(article: PortfolioBlogPost) {
+      const readingTimeInMinutes = Math.ceil(article.readingTime / 60 / 60 / 60);
+      return `${readingTimeInMinutes} minutes`;
+    },
   },
   head(): any {
     return {
@@ -78,7 +90,7 @@ export default Vue.extend({
 
     const [prevArticle, nextArticle] = await $content('blog')
       .only(['title', 'customSlug'])
-      .sortBy('date')
+      .sortBy('createdAt', 'asc')
       .surround(post[0].slug)
       .fetch();
 
