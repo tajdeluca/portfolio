@@ -18,7 +18,7 @@ import Vue from 'vue';
 
 export default Vue.extend({
   head: {
-    title: 'Taj Deluca - Front End Wizard - About me',
+    title: 'About me - Taj Deluca - Front End Wizard',
     meta: [
       { hid: 'description', name: 'description', content: 'All about Taj Deluca, the (not so) famous software engineer.' }
     ]

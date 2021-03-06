@@ -1,4 +1,3 @@
-
 export default {
   /*
   ** Nuxt rendering mode
@@ -64,12 +63,29 @@ export default {
   build: {
     extractCSS: true,
   },
+  content: {
+    nestedProperties: ['categories.customSlug']
+  },
   hooks: {
-    'content:file:beforeInsert': (document) => {
+    'content:file:beforeInsert': async (document) => {
       if (document.extension === '.md') {
-        const { time } = require('reading-time')(document.text)
+        const { time } = require('reading-time')(document.text);
+        const { $content } = require('@nuxt/content');
 
-        document.readingTime = time
+        document.readingTime = time;
+
+        if (document.dir === '/blog' && document?.categories) {
+          // Replace tags with the processed version.
+          if (typeof $content === 'function') {
+            const fullCategories = await $content('/blog/categories')
+              .where({ customSlug: { $in: document.categories } })
+              .fetch();
+
+            document.categories = fullCategories;
+          } else {
+            document.categories = null;
+          }
+        }
       }
     }
   }

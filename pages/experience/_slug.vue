@@ -20,7 +20,7 @@ import Vue from 'vue';
 export default Vue.extend({
   head(): any {
     return {
-      title: `Taj Deluca - Front End Wizard - My tenure @ ${this.job.title}`,
+      title: `My tenure @ ${this.job.title} - Taj Deluca - Front End Wizard`,
       meta: [
         { hid: 'description', name: 'description', content: this.job.description }
       ]
