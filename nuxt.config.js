@@ -63,6 +63,9 @@ export default {
   build: {
     extractCSS: true,
   },
+  content: {
+    nestedProperties: ['categories.customSlug']
+  },
   hooks: {
     'content:file:beforeInsert': async (document) => {
       if (document.extension === '.md') {
