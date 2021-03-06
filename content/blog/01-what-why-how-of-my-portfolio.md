@@ -1,4 +1,5 @@
 ---
+customSlug: what-why-how-of-my-portfolio
 title: The what’s, why’s and how’s of my personal website
 subtitle: My thoughts and learnings after rebuilding my site (again)...
 description: The start of my journey from radio silence to a small social media presence. An overview into why I created this website and the tools and frameworks I used to achieve my goal.
