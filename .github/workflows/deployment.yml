@@ -15,21 +15,21 @@ jobs:
   runs-on: ${{ env.RUN_OPERATING_SYSTEM }}
   build:
     name: 'Build'
-    uses: ./.github/workflows/jobs/build.yml
+    uses: ./.github/workflows/build.yml
     with:
       artifact_name: ${{ env.RUN_BUILD_ARTIFACT_NAME }}
       node_version: ${{ env.RUN_NODE_VERSION }}
       runner: ${{ env.RUN_OPERATING_SYSTEM }}
   test:
     name: 'Test'
-    uses: ./.github/workflows/jobs/test.yml
+    uses: ./.github/workflows/test.yml
     with:
       build_artifact_name: ${{ env.RUN_BUILD_ARTIFACT_NAME }}
       node_version: ${{ env.RUN_NODE_VERSION }}
       runner: ${{ env.RUN_OPERATING_SYSTEM }}
   deploy_beta:
     name: 'Deploy Beta'
-    uses: ./.github/workflows/jobs/deploy.yml
+    uses: ./.github/workflows/deploy.yml
     with:
       aws_region: ${{ env.RUN_AWS_REGION }}
       build_artifact_name: ${{ env.RUN_BUILD_ARTIFACT_NAME }}
@@ -44,7 +44,7 @@ jobs:
       CLOUDFRONT_INVALIDATION_SECRET_ACCESS_KEY: ${{ secrets.CLOUDFRONT_INVALIDATION_SECRET_ACCESS_KEY }}
   deploy_production:
     name: 'Deploy Production'
-    uses: ./.github/workflows/jobs/deploy.yml
+    uses: ./.github/workflows/deploy.yml
     with:
       aws_region: ${{ env.RUN_AWS_REGION }}
       build_artifact_name: ${{ env.RUN_BUILD_ARTIFACT_NAME }}
