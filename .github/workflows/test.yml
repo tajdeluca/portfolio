@@ -23,6 +23,7 @@ on:
 jobs:
   test:
     runs-on: ${{ inputs.runner }}
+    container: 'mcr.microsoft.com/playwright:v1.21.1-focal'
     steps:
     # Checkout
     - uses: actions/checkout@v2
@@ -40,8 +41,6 @@ jobs:
     # Install dependencies
     - name: NPM CI
       run: npm ci
-    - name: Install Playwright Browsers
-      run: npx playwright install --with-deps
     - name: Run Playwright tests for feature
       if: not(${{ inputs.test_is_against_deployment }})
       run: npm test --ignore-scripts
