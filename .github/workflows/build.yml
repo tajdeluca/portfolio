@@ -24,7 +24,7 @@ jobs:
         node-version: ${{ inputs.node_version }}
     # Install dependencies
     - name: NPM CI
-      run: npm ci
+      run: npm ci --no-optional
     # Nuxt Generate
     - name: Nuxt Generate
       run: npm run generate --fail-on-error
