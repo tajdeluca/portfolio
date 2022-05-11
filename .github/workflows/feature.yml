@@ -3,13 +3,7 @@ name: 'Feature'
 
 on:
   pull_request:
-    types:
-      - opened
-      - reopened
-      - synchronize
-      - edited
-    branches:
-      - 'main'
+    branches: [ main ]
 
 jobs:
   build:
