@@ -34,6 +34,7 @@ jobs:
     - uses: actions/download-artifact@v3
       with:
         name: ${{ inputs.build_artifact_name }}
+        path: dist
     # Setup beta robots.txt
     - name: Setup Beta robots.txt
       if: ${{ inputs.is_production == false }}
