@@ -27,7 +27,7 @@ on:
       CLOUDFRONT_INVALIDATION_SECRET_ACCESS_KEY:
         required: true
 jobs:
-  build:
+  deploy:
     runs-on: ${{ inputs.runner }}
     steps:
     # Download previous build
