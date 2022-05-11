@@ -24,7 +24,6 @@ jobs:
       test_base_url: 'http://localhost:3000'
       test_is_against_deployment: false
       test_report_artifact_name: 'test-ci-results'
-
   deploy_beta:
     name: 'Deploy Beta'
     needs: test
@@ -41,6 +40,17 @@ jobs:
       CLOUDFRONT_DISTRIBUTION_ID: ${{ secrets.BETA_CLOUDFRONT_DISTRIBUTION_ID }}
       CLOUDFRONT_INVALIDATION_ACCESS_KEY_ID: ${{ secrets.CLOUDFRONT_INVALIDATION_ACCESS_KEY_ID }}
       CLOUDFRONT_INVALIDATION_SECRET_ACCESS_KEY: ${{ secrets.CLOUDFRONT_INVALIDATION_SECRET_ACCESS_KEY }}
+  test_beta:
+    name: 'Test Beta'
+    needs: deploy_beta
+    uses: ./.github/workflows/test.yml
+    with:
+      build_artifact_name: 'build'
+      node_version: '16.x'
+      runner: 'ubuntu-latest'
+      test_base_url: 'https://beta.tajdeluca.com'
+      test_is_against_deployment: true
+      test_report_artifact_name: 'test-beta-results'
   deploy_production:
     name: 'Deploy Production'
     needs: deploy_beta
@@ -57,3 +67,14 @@ jobs:
       CLOUDFRONT_DISTRIBUTION_ID: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
       CLOUDFRONT_INVALIDATION_ACCESS_KEY_ID: ${{ secrets.CLOUDFRONT_INVALIDATION_ACCESS_KEY_ID }}
       CLOUDFRONT_INVALIDATION_SECRET_ACCESS_KEY: ${{ secrets.CLOUDFRONT_INVALIDATION_SECRET_ACCESS_KEY }}
+  test_production:
+    name: 'Test Production'
+    needs: deploy_production
+    uses: ./.github/workflows/test.yml
+    with:
+      build_artifact_name: 'build'
+      node_version: '16.x'
+      runner: 'ubuntu-latest'
+      test_base_url: 'https://tajdeluca.com'
+      test_is_against_deployment: true
+      test_report_artifact_name: 'test-production-results'
