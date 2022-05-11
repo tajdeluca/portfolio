@@ -21,6 +21,10 @@ jobs:
       build_artifact_name: 'build'
       node_version: '16.x'
       runner: 'ubuntu-latest'
+      test_base_url: 'http://localhost:3000'
+      test_is_against_deployment: false
+      test_report_artifact_name: 'test-ci-results'
+
   deploy_beta:
     name: 'Deploy Beta'
     needs: test

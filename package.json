@@ -8,8 +8,7 @@
     "start": "nuxt-ts start",
     "generate": "nuxt-ts generate",
     "pretest": "npm run build",
-    "test": "TEST_IS_FEATURE_BRANCH=true TEST_BASE_URL=\"http://localhost:3000\" npx playwright test",
-    "test:ci": "npx playwright test"
+    "test": "npx playwright test"
   },
   "dependencies": {
     "@nuxt/content": "^1.7.0",

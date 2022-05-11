@@ -1,0 +1,32 @@
+# Feature Workflow
+name: 'Feature'
+
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - edited
+    branches:
+      - 'main'
+
+jobs:
+  build:
+    name: 'Build'
+    uses: ./.github/workflows/build.yml
+    with:
+      artifact_name: 'build'
+      node_version: '16.x'
+      runner: 'ubuntu-latest'
+  test:
+    name: 'Test'
+    needs: build
+    uses: ./.github/workflows/test.yml
+    with:
+      build_artifact_name: 'build'
+      node_version: '16.x'
+      runner: 'ubuntu-latest'
+      test_base_url: 'http://localhost:3000'
+      test_is_against_deployment: false
+      test_report_artifact_name: 'test-feature-ci-results'

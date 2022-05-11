@@ -101,7 +101,7 @@ const config: PlaywrightTestConfig = {
   // outputDir: 'test-results/',
 
   /* Run your local dev server before starting the tests */
-  webServer: process.env.TEST_IS_FEATURE_BRANCH ? featureWebServerConfig : undefined,
+  webServer: process.env.TEST_IS_AGAINST_DEPLOYMENT ? undefined : featureWebServerConfig,
 };
 
 export default config;
