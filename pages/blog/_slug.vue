@@ -36,6 +36,7 @@ import Vue from 'vue';
 import PortfolioBlogPost from 'types/portfolio-blog-post';
 import ArticleCategory from '~/components/ArticleCategory.vue';
 import { format } from 'date-fns';
+import { FetchReturn } from '@nuxt/content/types/query-builder';
 
 export default Vue.extend({
   components: { ArticleCategory },
@@ -92,7 +93,7 @@ export default Vue.extend({
       .only(['title', 'customSlug'])
       .sortBy('createdAt', 'asc')
       .surround(post[0].slug)
-      .fetch();
+      .fetch() as Array<FetchReturn>;
 
     return {
       post: post[0],

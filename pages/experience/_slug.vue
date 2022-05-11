@@ -15,6 +15,7 @@
 </template>
 
 <script lang="ts">
+import { FetchReturn } from '@nuxt/content/types/query-builder';
 import Vue from 'vue';
 
 export default Vue.extend({
@@ -43,7 +44,7 @@ export default Vue.extend({
     const slug = params.slug;
     const jobs = await $content(`experience`)
       .where({ slug: slug })
-      .fetch();
+      .fetch() as Array<FetchReturn>;
 
     if(jobs.length === 0) {
       error({ statusCode: 404, message: 'Work experience not found.' });
