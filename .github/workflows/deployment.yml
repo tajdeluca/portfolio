@@ -15,6 +15,7 @@ jobs:
       runner: 'ubuntu-latest'
   test:
     name: 'Test'
+    needs: build
     uses: ./.github/workflows/test.yml
     with:
       build_artifact_name: 'build'
@@ -22,6 +23,7 @@ jobs:
       runner: 'ubuntu-latest'
   deploy_beta:
     name: 'Deploy Beta'
+    needs: test
     uses: ./.github/workflows/deploy.yml
     with:
       aws_region: 'eu-west-1'
@@ -37,6 +39,7 @@ jobs:
       CLOUDFRONT_INVALIDATION_SECRET_ACCESS_KEY: ${{ secrets.CLOUDFRONT_INVALIDATION_SECRET_ACCESS_KEY }}
   deploy_production:
     name: 'Deploy Production'
+    needs: deploy_beta
     uses: ./.github/workflows/deploy.yml
     with:
       aws_region: 'eu-west-1'
