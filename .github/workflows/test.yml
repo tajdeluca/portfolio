@@ -47,13 +47,13 @@ jobs:
       run: npm test --ignore-scripts
       env:
         CI: 'anything'
-        TEST_BASE_URL: ${{ test_base_url }}
+        TEST_BASE_URL: ${{ inputs.test_base_url }}
     - name: Run Playwright tests
       if: ${{ inputs.test_is_against_deployment }}
       run: npm test --ignore-scripts
       env:
         CI: 'anything'
-        TEST_BASE_URL: ${{ test_base_url }}
+        TEST_BASE_URL: ${{ inputs.test_base_url }}
         TEST_IS_AGAINST_DEPLOYMENT: 'anything'
     - uses: actions/upload-artifact@v2
       if: always()
