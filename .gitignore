@@ -92,3 +92,6 @@ sw.*
 # Cypress
 cypress/screenshots
 cypress/videos
+/test-results/
+/playwright-report/
+/playwright/.cache/
