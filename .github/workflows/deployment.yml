@@ -53,7 +53,7 @@ jobs:
       test_report_artifact_name: 'test-beta-results'
   deploy_production:
     name: 'Deploy Production'
-    needs: deploy_beta
+    needs: test_beta
     uses: ./.github/workflows/deploy.yml
     with:
       aws_region: 'eu-west-1'
