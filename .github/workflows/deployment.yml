@@ -1,0 +1,59 @@
+# Deployment Workflow
+name: 'Deployment'
+
+env:
+  RUN_OPERATING_SYSTEM: 'ubuntu-latest'
+  RUN_NODE_VERSION: '16.x'
+  RUN_BUILD_ARTIFACT_NAME: 'build'
+  RUN_AWS_REGION: 'eu-west-1'
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  runs-on: ${{ env.RUN_OPERATING_SYSTEM }}
+  build:
+    name: 'Build'
+    uses: ./.github/workflows/jobs/build.yml
+    with:
+      artifact_name: ${{ env.RUN_BUILD_ARTIFACT_NAME }}
+      node_version: ${{ env.RUN_NODE_VERSION }}
+      runner: ${{ env.RUN_OPERATING_SYSTEM }}
+  test:
+    name: 'Test'
+    uses: ./.github/workflows/jobs/test.yml
+    with:
+      build_artifact_name: ${{ env.RUN_BUILD_ARTIFACT_NAME }}
+      node_version: ${{ env.RUN_NODE_VERSION }}
+      runner: ${{ env.RUN_OPERATING_SYSTEM }}
+  deploy_beta:
+    name: 'Deploy Beta'
+    uses: ./.github/workflows/jobs/deploy.yml
+    with:
+      aws_region: ${{ env.RUN_AWS_REGION }}
+      build_artifact_name: ${{ env.RUN_BUILD_ARTIFACT_NAME }}
+      is_production: false
+      runner: ${{ env.RUN_OPERATING_SYSTEM }}
+    secrets:
+      AWS_S3_BUCKET: ${{ secrets.AWS_S3_BETA_BUCKET }}
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      CLOUDFRONT_DISTRIBUTION_ID: ${{ secrets.BETA_CLOUDFRONT_DISTRIBUTION_ID }}
+      CLOUDFRONT_INVALIDATION_ACCESS_KEY_ID: ${{ secrets.CLOUDFRONT_INVALIDATION_ACCESS_KEY_ID }}
+      CLOUDFRONT_INVALIDATION_SECRET_ACCESS_KEY: ${{ secrets.CLOUDFRONT_INVALIDATION_SECRET_ACCESS_KEY }}
+  deploy_production:
+    name: 'Deploy Production'
+    uses: ./.github/workflows/jobs/deploy.yml
+    with:
+      aws_region: ${{ env.RUN_AWS_REGION }}
+      build_artifact_name: ${{ env.RUN_BUILD_ARTIFACT_NAME }}
+      is_production: true
+      runner: ${{ env.RUN_OPERATING_SYSTEM }}
+    secrets:
+      AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      CLOUDFRONT_DISTRIBUTION_ID: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
+      CLOUDFRONT_INVALIDATION_ACCESS_KEY_ID: ${{ secrets.CLOUDFRONT_INVALIDATION_ACCESS_KEY_ID }}
+      CLOUDFRONT_INVALIDATION_SECRET_ACCESS_KEY: ${{ secrets.CLOUDFRONT_INVALIDATION_SECRET_ACCESS_KEY }}

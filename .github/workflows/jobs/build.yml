@@ -1,0 +1,35 @@
+on:
+  workflow_call:
+    inputs:
+      artifact_name:
+        required: true
+        type: string
+      node_version:
+        required: true
+        type: string
+      runner:
+        required: true
+        type: string
+
+jobs:
+  build:
+    runs-on: ${{ inputs.runner }}
+    steps:
+    # Checkout
+    - uses: actions/checkout@v2
+    # Setup NodeJS
+    - name: Setup Node.js environment
+      uses: actions/setup-node@v1.4.4
+      with:
+        node-version: ${{ inputs.node_version }}
+    # Install dependencies
+    - name: NPM CI
+      run: npm ci
+    # Nuxt Generate
+    - name: Nuxt Generate
+      run: npm run generate --fail-on-error
+    - name: Store Build Artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: ${{ inputs.artifact_name }}
+        path: dist

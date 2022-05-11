@@ -1,0 +1,77 @@
+on:
+  workflow_call:
+    inputs:
+      aws_region:
+        required: true
+        type: string
+      build_artifact_name:
+        required: true
+        type: string
+      is_production:
+        required: true
+        type: boolean
+      runner:
+        required: true
+        type: string
+    secrets:
+      AWS_S3_BUCKET:
+        required: true
+      AWS_ACCESS_KEY_ID:
+        required: true
+      AWS_SECRET_ACCESS_KEY:
+        required: true
+      CLOUDFRONT_DISTRIBUTION_ID:
+        required: true
+      CLOUDFRONT_INVALIDATION_ACCESS_KEY_ID:
+        required: true
+      CLOUDFRONT_INVALIDATION_SECRET_ACCESS_KEY:
+        required: true
+jobs:
+  build:
+    runs-on: ${{ inputs.runner }}
+    steps:
+    # Download previous build
+    - uses: actions/download-artifact@v3
+      with:
+        name: ${{ inputs.build_artifact_name }}
+    # Setup beta robots.txt
+    - name: Setup Beta robots.txt
+      if: ${{ inputs.is_production == false }}
+      run: mv dist/robots.beta.txt dist/robots.txt
+    # Setup production robots.txt
+    - name: Setup Production robots.txt
+      if: ${{ inputs.is_production }}
+      run: mv dist/robots.prod.txt dist/robots.txt
+    # Now deploy to S3!
+    - name: S3 Sync
+      uses: jakejarvis/s3-sync-action@v0.5.1
+      with:
+        args: --acl public-read --follow-symlinks --delete
+      env:
+        AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_REGION: ${{ inputs.aws_region }}
+        SOURCE_DIR: 'dist'
+    # Install Python
+    - name: Set up Python 3.8
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+    # Install pip and s3cmd
+    - name: s3cmd Setup
+      run: |
+        python -m pip install --upgrade pip
+        pip install s3cmd
+    # Update S3 Cache Control settings so assets are cached for 30 days on browsers...
+    - name: S3 Cache Control
+      run: s3cmd --access_key "${{ secrets.AWS_ACCESS_KEY_ID }}" --secret_key "${{ secrets.AWS_SECRET_ACCESS_KEY }}" --region "${{ inputs.aws_region }}" --recursive modify --add-header "Cache-Control:max-age=2592000" --exclude "*.html" --exclude "*.ico" s3://${{ secrets.AWS_S3_BUCKET }}/
+    # Invalidate Cloudfront
+    - name: Invalidate CloudFront Caches
+      uses: chetan/invalidate-cloudfront-action@master
+      env:
+        DISTRIBUTION: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
+        PATHS: '/*'
+        AWS_REGION: ${{ inputs.aws_region }}
+        AWS_ACCESS_KEY_ID: ${{ secrets.CLOUDFRONT_INVALIDATION_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.CLOUDFRONT_INVALIDATION_SECRET_ACCESS_KEY }}

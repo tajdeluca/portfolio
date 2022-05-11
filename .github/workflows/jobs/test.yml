@@ -1,0 +1,39 @@
+# TODO: Replace Cypress with Playwright Test
+on:
+  workflow_call:
+    inputs:
+      build_artifact_name:
+        required: true
+        type: string
+      node_version:
+        required: true
+        type: string
+      runner:
+        required: true
+        type: string
+
+jobs:
+  test:
+    runs-on: ${{ inputs.runner }}
+    steps:
+    # Checkout
+    - uses: actions/checkout@v2
+    # Download previous build
+    - uses: actions/download-artifact@v3
+      with:
+        name: ${{ inputs.build_artifact_name }}
+    # Setup NodeJS
+    - name: Setup Node.js environment
+      uses: actions/setup-node@v1.4.4
+      with:
+        node-version: ${{ inputs.node_version }}
+    # Install dependencies
+    - name: NPM CI
+      run: npm ci
+    # Cypress Test
+    - name: Cypress run
+      uses: cypress-io/github-action@v2
+      with:
+        config-file: cypress.json
+        start: npm start
+        wait-on: 'http://localhost:3000'
