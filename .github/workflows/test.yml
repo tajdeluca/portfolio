@@ -42,7 +42,7 @@ jobs:
           ${{ runner.os }}-
     # Download previous build
     - uses: actions/download-artifact@v3
-      if: not(${{ inputs.test_is_against_deployment }})
+      if: ${{ inputs.test_is_against_deployment }} == false
       with:
         name: ${{ inputs.build_artifact_name }}
         path: dist
@@ -55,7 +55,7 @@ jobs:
     - name: NPM CI
       run: npm ci
     - name: Run Playwright tests for feature
-      if: not(${{ inputs.test_is_against_deployment }})
+      if: ${{ inputs.test_is_against_deployment }} == false
       run: npm test --ignore-scripts
       env:
         CI: 'anything'
