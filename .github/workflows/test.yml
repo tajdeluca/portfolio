@@ -55,7 +55,7 @@ jobs:
       run: npm ci
     - name: Run Playwright tests for feature
       if: ${{ inputs.test_is_against_deployment == false }}
-      run: npm test --ignore-scripts
+      run: npm test
       env:
         CI: 'anything'
         TEST_BASE_URL: ${{ inputs.test_base_url }}
