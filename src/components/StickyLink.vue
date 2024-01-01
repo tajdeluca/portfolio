@@ -2,7 +2,7 @@
   <nav class="container">
     <ul>
       <li>
-        <nuxt-link v-bind:to="props.linkTo">{{ props.linkText }}</nuxt-link>
+        <NuxtLink v-bind:to="props.linkTo">{{ props.linkText }}</NuxtLink>
       </li>
     </ul>
     <div>

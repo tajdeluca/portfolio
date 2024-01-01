@@ -1,5 +1,3 @@
-import readingTime from 'reading-time'
-
 export default defineNuxtConfig({
   /*
   ** Nuxt target
@@ -51,26 +49,6 @@ export default defineNuxtConfig({
   },
   content: {
     nestedProperties: ['categories.customSlug']
-  },
-  hooks: {
-    'content:file:beforeInsert': async (document) => {
-      if (document.extension === '.md') {
-        document.readingTime = readingTime(document.text);
-
-        if (document.dir === '/blog' && document?.categories) {
-          // Replace tags with the processed version.
-          if (typeof $content === 'function') {
-            const fullCategories = await queryContent('/blog/categories')
-              .where({ customSlug: { $in: document.categories } })
-              .find();
-
-            document.categories = fullCategories;
-          } else {
-            document.categories = null;
-          }
-        }
-      }
-    }
   },
   typescript: {
     typeCheck: true,

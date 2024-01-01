@@ -13,3 +13,7 @@ export function getReadingTime(article: ParsedContent) {
   const readingTimeInMinutes = Math.ceil(article.readingTime / 60 / 60 / 60);
   return `${readingTimeInMinutes} minutes`;
 }
+
+export async function getArticleCategories() {
+  return queryContent('/blog/categories').find()
+}

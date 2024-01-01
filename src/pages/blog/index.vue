@@ -11,7 +11,7 @@
       <h3>Sorry, I haven't written any articles yet!</h3>
       <p>This site is still pretty fresh. I'm working on writing some fresh content so I can begin to populate this blog!
         Come back later and I might have something ready!</p>
-      <p>Until then, it's probably best you <nuxt-link to="/">go back to the homepage.</nuxt-link></p>
+      <p>Until then, it's probably best you <NuxtLink to="/">go back to the homepage.</NuxtLink></p>
     </div>
     <div v-if="articles && articles.length > 0" class="container">
       <article v-for="(article, index) in articles" :key="index">
@@ -19,11 +19,11 @@
         <p><small>Written on <time :datetime="getCreatedDateAsDateTime(article)">{{ getCreatedDate(article) }}</time> with an estimated reading time of {{ getReadingTime(article) }}.</small></p>
         <p>{{ article.description }}</p>
         <div v-if="article.categories" class="categories">
-          <p><nuxt-link :to="`/blog/${article.customSlug}/`">Read article.</nuxt-link></p>
+          <p><NuxtLink :to="`/blog/${article.customSlug}/`">Read article.</NuxtLink></p>
           <small>Categories:</small> <article-category v-for="(category, index) in article.categories" :key="index" :category="category"></article-category>
         </div>
         <div v-else>
-          <p><nuxt-link :to="`/blog/${article.customSlug}/`">Read article.</nuxt-link></p>
+          <p><NuxtLink :to="`/blog/${article.customSlug}/`">Read article.</NuxtLink></p>
         </div>
         <hr v-if="index !== Object.keys(articles).length - 1">
       </article>
@@ -42,12 +42,19 @@ useHead({
   ]
 })
 
-const { data: articles } = await useAsyncData(`blog-articles`, () => queryContent('/blog').sort(
-  {
-    createdAt: 1,
-    desc: 1
-  }
-).find())
+const { data: articles } = await useAsyncData(`blog-articles`, () => queryContent('/blog')
+  .where({
+    _path: {
+      $not: {
+        $contains: 'categories',
+      }
+    }
+  })
+  .sort(
+    {
+      createdAt: -1,
+    }
+  ).find())
 </script>
 
 <style scoped>

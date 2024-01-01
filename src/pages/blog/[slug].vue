@@ -9,7 +9,7 @@
     <StickyLink linkTo="/blog" linkText="Back to the article index."></StickyLink>
     <article class="container" :style="getHorizontalRuleTheme(post.gradientStartColour, post.gradientEndColour)">
       <p><small>Written on <time :datetime="getCreatedDateAsDateTime(post)">{{ getCreatedDate(post) }}</time> with an estimated reading time of {{ getReadingTime(post) }}.</small></p>
-      <nuxt-content :document="post" />
+      <ContentRenderer :value="post" />
       <div v-if="post.categories">
         <hr>
         <p>This article is part of the following categories:</p>
@@ -20,11 +20,11 @@
       <nav class="article-nav-grid" v-if="surroundingArticles">
         <div v-if="surroundingArticles[0]" class="previous-article">
           <h4>Previous article</h4>
-          <nuxt-link :to="`/blog/${surroundingArticles[0].customSlug}`">{{ surroundingArticles[0].title }}</nuxt-link>
+          <NuxtLink :to="`/blog/${surroundingArticles[0].customSlug}`">{{ surroundingArticles[0].title }}</NuxtLink>
         </div>
         <div v-if="surroundingArticles[1]" class="next-article">
           <h4>Next article</h4>
-          <nuxt-link :to="`/blog/${surroundingArticles[1].customSlug}`">{{ surroundingArticles[1].title }}</nuxt-link>
+          <NuxtLink :to="`/blog/${surroundingArticles[1].customSlug}`">{{ surroundingArticles[1].title }}</NuxtLink>
         </div>
       </nav>
     </article>
@@ -60,6 +60,13 @@ useHead({
 
 const { data: surroundingArticles } = await useAsyncData(`blog-article-${slug.value}-surround`, () => queryContent('/blog')
   .only(['title', 'customSlug'])
+  .where({
+    _path: {
+      $not: {
+        $contains: 'categories',
+      }
+    }
+  })
   .sort({
     createdAt: 1,
   })

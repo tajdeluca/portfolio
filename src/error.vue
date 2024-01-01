@@ -9,7 +9,7 @@
     </header>
     <div class="container">
       <p>Sorry, it seems like you've stumbled across something that doesn't exist! It's probably best you
-      <nuxt-link to="/">navigate back to the home page.</nuxt-link></p>
+      <NuxtLink to="/">navigate back to the home page.</NuxtLink></p>
       <p>I hope you find what you're looking for!</p>
     </div>
   </div>

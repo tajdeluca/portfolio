@@ -1,13 +1,24 @@
 <template>
   <div class="category">
-    <nuxt-link :to="`/blog/categories/${category.customSlug}`" :style="`background: ${backgroundGradient}`">{{ category.title }}</nuxt-link>
+    <NuxtLink :to="`/blog/categories/${fullCategory.customSlug}`" :style="`background: ${backgroundGradient}`">{{ fullCategory.title }}</NuxtLink>
   </div>
 </template>
 
 <script setup lang="ts">
+import { getArticleCategories } from '~/pages/blog/utils';
+
 const props = defineProps(['category'])
 
-const backgroundGradient = computed(() => `linear-gradient(134deg, ${props.category.gradientStartColour} 0%, ${props.category.gradientEndColour} 100%);`)
+const { data: allCategories } = await useAsyncData('blog-article-categories', () => getArticleCategories())
+
+const fullCategory = allCategories.value?.find(x => x.customSlug === props.category)
+
+if (!fullCategory)
+{
+  throw new Error("Category not found.")
+}
+
+const backgroundGradient = computed(() => `linear-gradient(134deg, ${fullCategory.gradientStartColour} 0%, ${fullCategory.gradientEndColour} 100%);`)
 </script>
 
 <style scoped>

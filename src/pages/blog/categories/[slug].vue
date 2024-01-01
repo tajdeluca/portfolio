@@ -14,11 +14,11 @@
     <div class="container">
       <h3>Articles</h3>
       <div class="article-grid">
-        <nuxt-link v-for="(article, index) in articles" :key="index" :to="`/blog/${article.customSlug}`" :style="`--horizontal-rule-start-colour: ${article.gradientStartColour}; --horizontal-rule-end-colour: ${article.gradientEndColour}`">
+        <NuxtLink v-for="(article, index) in articles" :key="index" :to="`/blog/${article.customSlug}`" :style="`--horizontal-rule-start-colour: ${article.gradientStartColour}; --horizontal-rule-end-colour: ${article.gradientEndColour}`">
           <h4>{{ article.title }}</h4>
           <h5>{{ article.subtitle }}</h5>
           <h6>Written on <time :datetime="getCreatedDateAsDateTime(article)">{{ getCreatedDate(article) }}</time></h6>
-        </nuxt-link>
+        </NuxtLink>
       </div>
     </div>
   </div>
@@ -35,7 +35,7 @@ useHead({
 })
 
 const route = useRoute()
-const slug = ref(route.params["slug"])
+const slug = ref(route.params.slug)
 
 const { data: category } = await useAsyncData(`blog-category-${slug.value}`, () => queryContent('/blog/categories').where({ customSlug: slug.value }).findOne())
 
@@ -47,7 +47,7 @@ if (!category)
   })
 }
 
-const { data: articles } = await useAsyncData(`blog-category-${slug.value}-articles`, () => queryContent('/blog').where({ 'categories.customSlug': { $contains: slug.value } }).find())
+const { data: articles } = await useAsyncData(`blog-category-${slug.value}-articles`, () => queryContent('/blog').where({ 'categories': { $contains: category.value?.customSlug } }).find())
 </script>
 
 <style scoped>

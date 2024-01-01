@@ -28,7 +28,7 @@ const horizontalRuleStyles = ref({
 useHead({
   title: `My tenure @ ${job.value?.title} - Taj Deluca - Front End Wizard`,
   meta: [
-    { hid: 'description', name: 'description', content: job.value?.description }
+    { name: 'description', content: job.value?.description }
   ]
 })
 
@@ -39,8 +39,6 @@ if (!job.value)
     statusMessage: 'Work experience not found.',
   })
 }
-
-console.warn(job.value)
 </script>
 
 <style scoped>
