@@ -1,7 +1,7 @@
 <template>
   <div>
     <header>
-      <Banner v-if="error.statusCode === 404"
+      <Banner v-if="error && error.statusCode === 404"
         heading="Error 404"
         subheading="Page not found."
         header-background-gradient-start-colour="#1a1a1a"
@@ -19,16 +19,15 @@
 
 </style>
 
-<script lang="ts">
-import Vue from 'vue';
+<script setup lang="ts">
+defineProps({
+  error: Object
+})
 
-export default Vue.extend({
-  props: ['error'],
-  head: {
-    title: 'Taj Deluca - Page not found',
-    meta: [
-      { hid: 'description', name: 'description', content: 'Sorry, despite the vast amount of skills I have... that page doesn\'t exist.' }
-    ]
-  }
-});
+useHead({
+  title: 'Taj Deluca - Page not found',
+  meta: [
+    { name: 'description', content: 'Sorry, despite the vast amount of skills I have... that page doesn\'t exist.' }
+  ]
+})
 </script>

@@ -1,7 +1,7 @@
 <template>
   <div class="parent">
     <div class="content">
-      <Nuxt />
+      <slot />
     </div>
     <footer class="container">
       <small>Copyright &copy; Taj Deluca {{ currentDate.getFullYear() }}</small>
@@ -9,16 +9,8 @@
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
-
-export default Vue.extend({
-  data() {
-    return {
-      currentDate: new Date(),
-    };
-  }
-});
+<script setup lang="ts">
+  const currentDate = new Date()
 </script>
 
 <style scoped>

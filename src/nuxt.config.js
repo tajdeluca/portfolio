@@ -1,3 +1,5 @@
+import readingTime from 'reading-time'
+
 export default defineNuxtConfig({
   /*
   ** Nuxt target
@@ -26,7 +28,7 @@ export default defineNuxtConfig({
   ** Global CSS
   */
   css: [
-    'styles/styles.css'
+    'assets/styles.css'
   ],
   /*
   ** Plugins to load before mounting the App
@@ -53,17 +55,14 @@ export default defineNuxtConfig({
   hooks: {
     'content:file:beforeInsert': async (document) => {
       if (document.extension === '.md') {
-        const { time } = require('reading-time')(document.text);
-        const { $content } = require('@nuxt/content');
-
-        document.readingTime = time;
+        document.readingTime = readingTime(document.text);
 
         if (document.dir === '/blog' && document?.categories) {
           // Replace tags with the processed version.
           if (typeof $content === 'function') {
-            const fullCategories = await $content('/blog/categories')
+            const fullCategories = await queryContent('/blog/categories')
               .where({ customSlug: { $in: document.categories } })
-              .fetch();
+              .find();
 
             document.categories = fullCategories;
           } else {

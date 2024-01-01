@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "scripts": {
     "build": "npm run build --workspace=src && npm run generate --workspace=src",
+    "dev": "npm run dev --workspace=src",
     "show-playwright-report": "npx playwright show-report test/integration/playwright-report",
     "start": "npm run start --workspace=src",
     "pretest": "npm run build",

@@ -22,7 +22,7 @@ useHead({
   ]
 })
 
-const { data } = await useAsyncData('about', () => queryContent('/about-me/index').findOne())
+const { data } = await useAsyncData('about', () => queryContent('/about-me').findOne())
 </script>
 
 <style scoped>

@@ -22,7 +22,7 @@
       <article v-for="(job, index) in jobs" :key="index">
         <h4>{{ job.title }}</h4>
         <p>{{ job.description }}</p>
-        <p><nuxt-link :to="`experience/${job.slug}/`">Learn more about my time at {{job.title}}.</nuxt-link></p>
+        <p><nuxt-link :to="job._path">Learn more about my time at {{job.title}}.</nuxt-link></p>
         <hr v-if="index === (jobs?.length ?? 0) - 1">
       </article>
       <h3>Wait, there's more...</h3>

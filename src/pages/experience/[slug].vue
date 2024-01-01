@@ -16,9 +16,9 @@
 
 <script setup lang="ts">
 const route = useRoute()
-const slug = ref(route.params["slug"])
+const slug = ref(route.fullPath)
 
-const { data: job } = await useAsyncData(`experience:${slug}`, () => queryContent('/experience').where({ slug: slug.value }).findOne())
+const { data: job } = await useAsyncData(`experience:${slug}`, () => queryContent(slug.value).findOne())
 
 const horizontalRuleStyles = ref({
   '--horizontal-rule-start-colour': job.value?.gradientStartColour,
@@ -32,13 +32,15 @@ useHead({
   ]
 })
 
-if (!job)
+if (!job.value)
 {
   throw createError({
     statusCode: 404,
     statusMessage: 'Work experience not found.',
   })
 }
+
+console.warn(job.value)
 </script>
 
 <style scoped>
