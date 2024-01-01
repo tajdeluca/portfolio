@@ -1,7 +1,7 @@
 <template>
   <div>
     <header>
-      <Banner v-bind:heading="job.title"
+      <Banner v-if="job" v-bind:heading="job.title"
         v-bind:subheading="job.role"
         v-bind:header-background-gradient-start-colour="job.gradientStartColour"
         v-bind:header-background-gradient-end-colour="job.gradientEndColour"
@@ -9,61 +9,36 @@
     </header>
     <StickyLink linkTo="/" linkText="Back to the homepage." />
     <article class="container" :style="horizontalRuleStyles">
-      <nuxt-content :document="job" />
+      <ContentRenderer v-if="job" :value="job" />
     </article>
   </div>
 </template>
 
-<script lang="ts">
-import { FetchReturn } from '@nuxt/content/types/query-builder';
-import Vue from 'vue';
+<script setup lang="ts">
+const route = useRoute()
+const slug = ref(route.params["slug"])
 
-export default Vue.extend({
-  head(): any {
-    return {
-      title: `My tenure @ ${this.job.title} - Taj Deluca - Front End Wizard`,
-      meta: [
-        { hid: 'description', name: 'description', content: this.job.description }
-      ]
-    }
-  },
-  data() {
-    const job = {
-      title: '',
-      description: '',
-      gradientStartColour: '',
-      gradientEndColour: '',
-      gradientDirection: 0,
-    };
+const { data: job } = await useAsyncData(`experience:${slug}`, () => queryContent('/experience').where({ slug: slug.value }).findOne())
 
-    return {
-      job
-    };
-  },
-  async asyncData ({ params, error, $content }) {
-    const slug = params.slug;
-    const jobs = await $content(`experience`)
-      .where({ slug: slug })
-      .fetch() as Array<FetchReturn>;
+const horizontalRuleStyles = ref({
+  '--horizontal-rule-start-colour': job.value?.gradientStartColour,
+  '--horizontal-rule-end-colour': job.value?.gradientEndColour,
+})
 
-    if(jobs.length === 0) {
-      error({ statusCode: 404, message: 'Work experience not found.' });
-      return;
-    }
+useHead({
+  title: `My tenure @ ${job.value?.title} - Taj Deluca - Front End Wizard`,
+  meta: [
+    { hid: 'description', name: 'description', content: job.value?.description }
+  ]
+})
 
-    return {
-      job: jobs[0]
-    }
-  },
-  computed: {
-    horizontalRuleStyles(): any {
-      return {
-        '--horizontal-rule-start-colour': this.job.gradientStartColour,
-        '--horizontal-rule-end-colour': this.job.gradientEndColour,
-      }
-    }
-  }
-});
+if (!job)
+{
+  throw createError({
+    statusCode: 404,
+    statusMessage: 'Work experience not found.',
+  })
+}
 </script>
 
 <style scoped>

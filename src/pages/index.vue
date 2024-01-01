@@ -23,7 +23,7 @@
         <h4>{{ job.title }}</h4>
         <p>{{ job.description }}</p>
         <p><nuxt-link :to="`experience/${job.slug}/`">Learn more about my time at {{job.title}}.</nuxt-link></p>
-        <hr v-if="index === Object.keys(jobs).length - 1">
+        <hr v-if="index === (jobs?.length ?? 0) - 1">
       </article>
       <h3>Wait, there's more...</h3>
       <article>
@@ -40,26 +40,18 @@
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue';
+<script setup lang="ts">
 
-export default Vue.extend({
-  head: {
-    title: 'Taj Deluca - Front End Wizard',
-    meta: [
-      { hid: 'description', name: 'description', content: `A senior full stack software engineer based in the United Kingdom. I love all things web development!` }
-    ]
-  },
-  async asyncData ({ $content }) {
-    const jobs = await $content(`experience`)
-      .sortBy('startDate')
-      .fetch();
+useHead({
+  title: 'Taj Deluca - Front End Wizard',
+  meta: [
+    { name: 'description', content: `A senior full stack software engineer based in the United Kingdom. I love all things web development!` }
+  ]
+})
 
-    return {
-      jobs
-    }
-  }
-});
+const { data: jobs } = await useAsyncData('jobs', () => queryContent('/experience').sort({
+  startDate: 1
+}).find())
 </script>
 
 <style scoped>

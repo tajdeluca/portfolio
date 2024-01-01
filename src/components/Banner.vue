@@ -30,54 +30,47 @@
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue';
-
+<script setup lang="ts">
 type HeaderCSSVariables = {
   '--animation-speed-multiplier'?: number
   '--header-background'?: string
   '--header-foreground'?: string
 };
 
-export default Vue.extend({
-  props: {
-    heading: String,
-    subheading: String,
-    animationSpeedMultiplier: {
-      type: Number,
-      default: 2.5,
-    },
-    headerBackgroundGradientStartColour: {
-      type: String,
-      default: 'rgba(84, 58, 183, 1)',
-    },
-    headerBackgroundGradientEndColour: {
-      type: String,
-      default: 'rgba(0, 172, 193, 1)',
-    },
-    headerBackgroundGradientDirection: {
-      type: String,
-      default: '134',
-    },
-    headerForegroundColour: {
-      type: String,
-      default: '#ffffff',
-    },
-    showHomeLink: {
-      type: Boolean,
-      default: true,
-    },
+const props = defineProps({
+  heading: String,
+  subheading: String,
+  animationSpeedMultiplier: {
+    type: Number,
+    default: 2.5
   },
-  computed: {
-    cssVars(): HeaderCSSVariables {
-      return {
-        '--animation-speed-multiplier': this.animationSpeedMultiplier,
-        '--header-background': `linear-gradient(${this.headerBackgroundGradientDirection}deg, ${this.headerBackgroundGradientStartColour} 0%, ${this.headerBackgroundGradientEndColour} 100%)`,
-        '--header-foreground': this.headerForegroundColour,
-      }
-    },
+  headerBackgroundGradientStartColour: {
+    type: String,
+    default: 'rgba(84, 58, 183, 1)'
+  },
+  headerBackgroundGradientEndColour: {
+    type: String,
+    default: 'rgba(0, 172, 193, 1)'
+  },
+  headerBackgroundGradientDirection: {
+    type: String,
+    default: '134'
+  },
+  headerForegroundColour: {
+    type: String,
+    default: '#ffffff'
+  },
+  showHomeLink: {
+    type: Boolean,
+    default: true,
   },
 })
+
+const cssVars = computed(() => ({
+  '--animation-speed-multiplier': props.animationSpeedMultiplier,
+  '--header-background': `linear-gradient(${props.headerBackgroundGradientDirection}deg, ${props.headerBackgroundGradientStartColour} 0%, ${props.headerBackgroundGradientEndColour} 100%)`,
+  '--header-foreground': props.headerForegroundColour,
+}) as HeaderCSSVariables)
 </script>
 
 <style scoped>

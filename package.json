@@ -9,10 +9,15 @@
     "pretest": "npm run build",
     "test": "npm run test --workspaces"
   },
-  "workspaces": ["src", "test/integration", "test/unit"],
+  "workspaces": [
+    "src",
+    "test/integration",
+    "test/unit"
+  ],
   "devDependencies": {
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.4",
-    "prettier": "^2.0.5"
+    "prettier": "^2.0.5",
+    "typescript": "^5.3.3"
   }
 }

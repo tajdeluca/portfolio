@@ -1,4 +1,4 @@
-export default {
+export default defineNuxtConfig({
   /*
   ** Nuxt target
   ** See https://nuxtjs.org/api/configuration-target
@@ -16,7 +16,7 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
+      { name: 'description', content: process.env.npm_package_description || '' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
@@ -33,17 +33,6 @@ export default {
   ** https://nuxtjs.org/guide/plugins
   */
   plugins: [
-  ],
-  /*
-  ** Auto import components
-  ** See https://nuxtjs.org/api/configuration-components
-  */
-  components: true,
-  /*
-  ** Nuxt.js dev-modules
-  */
-  buildModules: [
-    '@nuxt/typescript-build',
   ],
   /*
   ** Nuxt.js modules
@@ -83,5 +72,8 @@ export default {
         }
       }
     }
+  },
+  typescript: {
+    typeCheck: true,
   }
-}
+})

@@ -2,7 +2,7 @@
   <nav class="container">
     <ul>
       <li>
-        <nuxt-link v-bind:to="linkTo">{{ linkText }}</nuxt-link>
+        <nuxt-link v-bind:to="props.linkTo">{{ props.linkText }}</nuxt-link>
       </li>
     </ul>
     <div>
@@ -11,21 +11,17 @@
   </nav>
 </template>
 
-<script lang="ts">
-import Vue from 'vue';
-
-export default Vue.extend({
-  props: {
-    linkTo: {
-      type: String,
-      required: true,
-    },
-    linkText: {
-      type: String,
-      required: true,
-    }
+<script setup lang="ts">
+const props = defineProps({
+  linkTo: {
+    type: String,
+    required: true,
+  },
+  linkText: {
+    type: String,
+    required: true,
   }
-});
+})
 </script>
 
 <style scoped>

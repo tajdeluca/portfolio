@@ -1,25 +1,13 @@
 <template>
   <div class="category">
-    <nuxt-link :to="`/blog/categories/${category.customSlug}`" :style="`background: ${this.backgroundGradient}`">{{ category.title }}</nuxt-link>
+    <nuxt-link :to="`/blog/categories/${category.customSlug}`" :style="`background: ${backgroundGradient}`">{{ category.title }}</nuxt-link>
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue';
+<script setup lang="ts">
+const props = defineProps(['category'])
 
-export default Vue.extend({
-  computed: {
-    backgroundGradient(): any {
-      return `linear-gradient(134deg, ${this.category.gradientStartColour} 0%, ${this.category.gradientEndColour} 100%);`;
-    }
-  },
-  props: {
-    category: {
-      type: Object,
-      required: true,
-    }
-  }
-});
+const backgroundGradient = computed(() => `linear-gradient(134deg, ${props.category.gradientStartColour} 0%, ${props.category.gradientEndColour} 100%);`)
 </script>
 
 <style scoped>

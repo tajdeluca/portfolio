@@ -8,29 +8,21 @@
     </header>
     <StickyLink linkTo="/" linkText="Back to the homepage." />
     <article class="container">
-      <nuxt-content :document="page" />
+      <ContentRenderer v-if="data" :value="data" />
     </article>
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue';
+<script setup lang="ts">
 
-export default Vue.extend({
-  head: {
-    title: 'About me - Taj Deluca - Front End Wizard',
-    meta: [
-      { hid: 'description', name: 'description', content: 'All about Taj Deluca, the (not so) famous software engineer.' }
-    ]
-  },
-  async asyncData ({ $content }) {
-    const page = await $content('about-me/index').fetch()
+useHead({
+  title: 'About me - Taj Deluca - Front End Wizard',
+  meta: [
+    { name: 'description', content: 'All about Taj Deluca, the (not so) famous software engineer.' }
+  ]
+})
 
-    return {
-      page
-    }
-  }
-});
+const { data } = await useAsyncData('about', () => queryContent('/about-me/index').findOne())
 </script>
 
 <style scoped>
