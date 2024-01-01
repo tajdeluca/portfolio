@@ -44,7 +44,7 @@ jobs:
       if: ${{ inputs.test_is_against_deployment == false }}
       with:
         name: ${{ inputs.build_artifact_name }}
-        path: dist
+        path: src/.output/public
     # Setup NodeJS
     - name: Setup Node.js environment
       uses: actions/setup-node@v4
@@ -55,7 +55,7 @@ jobs:
       run: npm ci
     - name: Run Playwright tests for feature
       if: ${{ inputs.test_is_against_deployment == false }}
-      run: HOME=/root npm test
+      run: HOME=/root npm test --ignore-scripts
       env:
         CI: 'anything'
         TEST_BASE_URL: ${{ inputs.test_base_url }}
