@@ -7,8 +7,5 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.40.0"
-  },
-  "optionalDependencies": {
-    "playwright": "^1.40.0"
   }
 }
