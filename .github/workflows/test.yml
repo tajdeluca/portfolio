@@ -40,7 +40,7 @@ jobs:
           ${{ runner.os }}-${{ env.cache-name }}-
           ${{ runner.os }}-
     # Download previous build
-    - uses: actions/download-artifact@v3
+    - uses: actions/download-artifact@v4
       if: ${{ inputs.test_is_against_deployment == false }}
       with:
         name: ${{ inputs.build_artifact_name }}
