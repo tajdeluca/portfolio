@@ -3,12 +3,13 @@
   "private": true,
   "version": "1.0.0",
   "scripts": {
-    "build": "npm run build --workspace=src && npm run generate --workspace=src",
+    "build": "npm run build --workspace=src",
     "dev": "npm run dev --workspace=src",
+    "generate": "npm run generate --workspace=src",
     "show-playwright-report": "npx playwright show-report test/integration/playwright-report",
     "start": "npm run start --workspace=src",
-    "pretest": "npm run build",
-    "test": "npm run test --workspaces"
+    "pretest": "npm run generate",
+    "test": "npm run test --workspaces --if-present"
   },
   "workspaces": [
     "src",
