@@ -89,9 +89,7 @@ sw.*
 # Vim swap files
 *.swp
 
-# Cypress
-cypress/screenshots
-cypress/videos
+# Tests
 /test-results/
 /playwright-report/
 /playwright/.cache/
