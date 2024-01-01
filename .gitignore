@@ -91,6 +91,6 @@ sw.*
 *.swp
 
 # Tests
-/test-results/
+test-results/
 playwright-report/
 playwright/.cache/
