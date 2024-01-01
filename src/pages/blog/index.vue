@@ -33,7 +33,7 @@
 
 <script setup lang="ts">
 import ArticleCategory from '~/components/ArticleCategory.vue';
-import { getCreatedDate, getCreatedDateAsDateTime, getReadingTime } from './utils'
+import { getCreatedDate, getCreatedDateAsDateTime, getReadingTime } from '~/blog-utils'
 
 useHead({
   title: 'Gradient Shift - Taj Deluca - Front End Wizard',

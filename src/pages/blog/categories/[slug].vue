@@ -25,7 +25,7 @@
 </template>
 
 <script setup lang="ts">
-import { getCreatedDate, getCreatedDateAsDateTime } from '../utils'
+import { getCreatedDate, getCreatedDateAsDateTime } from '~/blog-utils'
 
 useHead({
   title: 'Gradient Shift - Taj Deluca - Front End Wizard',

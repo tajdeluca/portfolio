@@ -32,7 +32,7 @@
 </template>
 
 <script setup lang="ts">
-import { getCreatedDate, getCreatedDateAsDateTime, getReadingTime } from './utils'
+import { getCreatedDate, getCreatedDateAsDateTime, getReadingTime } from '~/blog-utils'
 import ArticleCategory from '~/components/ArticleCategory.vue';
 
 function getHorizontalRuleTheme(gradientStartColour: string, gradientEndColour: string) {

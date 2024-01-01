@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import { getArticleCategories } from '~/pages/blog/utils';
+import { getArticleCategories } from '~/blog-utils'
 
 const props = defineProps(['category'])
 

@@ -65,8 +65,7 @@ export default defineConfig({
 
   /* Run your local dev server before starting the tests */
   webServer: process.env.TEST_IS_AGAINST_DEPLOYMENT ? undefined : {
-    command: 'cd ../../ && npm start',
+    command: 'cd ../../ && npx serve .output/public',
     port: 3000
   },
 });
-

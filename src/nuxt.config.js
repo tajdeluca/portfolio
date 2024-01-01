@@ -47,9 +47,6 @@ export default defineNuxtConfig({
   build: {
     extractCSS: true,
   },
-  content: {
-    nestedProperties: ['categories.customSlug']
-  },
   typescript: {
     typeCheck: true,
   }

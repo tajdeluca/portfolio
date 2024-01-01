@@ -70,6 +70,7 @@ typings/
 
 # Nuxt generate
 dist
+.output
 
 # vuepress build output
 .vuepress/dist
@@ -91,5 +92,5 @@ sw.*
 
 # Tests
 /test-results/
-/playwright-report/
-/playwright/.cache/
+playwright-report/
+playwright/.cache/
