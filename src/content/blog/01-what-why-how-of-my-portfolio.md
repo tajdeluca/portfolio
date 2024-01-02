@@ -9,7 +9,7 @@ createdAt: 2020-11-01
 ---
 
 ### It's hard to market yourself when all your work is private.
-As I've worked at <nuxt-link to="/experience/into-university-partnerships">INTO</nuxt-link> I've come to understand that the way you market yourself is becoming increasingly important, especially as I progress in my career. It's hard to stand out when the world is full of talented individuals and you like keeping to yourself! Do you struggle to represent yourself in interviews? Find it hard to show the results of what you've implemented because of commercial secrecy or some other such thing? I know I've had problems with it! So that's why I set out to fix that.
+As I've worked at [INTO](/experience/into-university-partnerships) I've come to understand that the way you market yourself is becoming increasingly important, especially as I progress in my career. It's hard to stand out when the world is full of talented individuals and you like keeping to yourself! Do you struggle to represent yourself in interviews? Find it hard to show the results of what you've implemented because of commercial secrecy or some other such thing? I know I've had problems with it! So that's why I set out to fix that.
 
 #### Who is this aimed at?
 This blog post assumes you have at least a basic understanding of the following:

@@ -10,8 +10,7 @@ export function getCreatedDate(article: ParsedContent) {
 }
 
 export function getReadingTime(article: ParsedContent) {
-  const readingTimeInMinutes = Math.ceil(article.readingTime / 60 / 60 / 60);
-  return `${readingTimeInMinutes} minutes`;
+  return `${article.readingTime?.minutes} minutes`;
 }
 
 export async function getArticleCategories() {
