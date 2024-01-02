@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="category">
     <header>
       <Banner v-bind:heading="category.title"
         v-bind:subheading="category.subtitle"
@@ -14,78 +14,40 @@
     <div class="container">
       <h3>Articles</h3>
       <div class="article-grid">
-        <nuxt-link v-for="(article, index) in articles" :key="index" :to="`/blog/${article.customSlug}`" :style="`--horizontal-rule-start-colour: ${article.gradientStartColour}; --horizontal-rule-end-colour: ${article.gradientEndColour}`">
+        <NuxtLink v-for="(article, index) in articles" :key="index" :to="`/blog/${article.customSlug}`" :style="`--horizontal-rule-start-colour: ${article.gradientStartColour}; --horizontal-rule-end-colour: ${article.gradientEndColour}`">
           <h4>{{ article.title }}</h4>
           <h5>{{ article.subtitle }}</h5>
           <h6>Written on <time :datetime="getCreatedDateAsDateTime(article)">{{ getCreatedDate(article) }}</time></h6>
-        </nuxt-link>
+        </NuxtLink>
       </div>
     </div>
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue';
-import { format } from 'date-fns';
-import PortfolioBlogPost from 'types/portfolio-blog-post';
+<script setup lang="ts">
+import { getCreatedDate, getCreatedDateAsDateTime } from '~/blog-utils'
 
-export default Vue.extend({
-  methods: {
-    getHorizontalRuleTheme(gradientStartColour: string, gradientEndColour: string) {
-      return `--horizontal-rule-start-colour: ${gradientStartColour}; --horizontal-rule-end-colour: ${gradientEndColour}`;
-    },
-    getCreatedDateAsDateTime(article: PortfolioBlogPost) {
-      return format(new Date(article.createdAt), 'yyyy-MM-dd');
-    },
-    getCreatedDate(article: PortfolioBlogPost) {
-      return format(new Date(article.createdAt), 'do MMMM yyyy');
-    },
-  },
-  head(): any {
-    return {
-      title: `${this.category.title} - Categories - Gradient Shift - Taj Deluca - Front End Wizard`,
-      meta: [
-        { hid: 'description', name: 'description', content: this.category.description }
-      ]
-    }
-  },
-  data() {
-    const category: PortfolioBlogPost = {
-      customSlug: '',
-      title: '',
-      description: '',
-      gradientStartColour: '#c86dd7',
-      gradientEndColour: '#3023ae',
-      readingTime: 0,
-      createdAt: new Date(),
-    };
+useHead({
+  title: 'Gradient Shift - Taj Deluca - Front End Wizard',
+  meta: [
+    { name: 'description', content: 'A series of ramblings, thoughts and perhaps even useful guides. My personal blog.' }
+  ]
+})
 
-    return {
-      category
-    };
-  },
-  async asyncData ({ params, error, $content }) {
-    const slug = params.slug;
-    const category: any = await $content(`blog/categories`)
-      .where({ customSlug: slug })
-      .fetch();
+const route = useRoute()
+const slug = ref(route.params.slug)
 
-    if(category.length === 0) {
-      error({ statusCode: 404, message: 'Category not found.' });
-      return;
-    }
+const { data: category } = await useAsyncData(`blog-category-${slug.value}`, () => queryContent('/blog/categories').where({ customSlug: slug.value }).findOne())
 
-    const articles = await $content(`blog`)
-      .where({ 'categories.customSlug': { $contains: category[0].customSlug } })
-      .sortBy('createdAt', 'asc')
-      .fetch();
+if (!category)
+{
+  throw createError({
+    statusCode: 404,
+    statusMessage: 'Category not found.',
+  })
+}
 
-    return {
-      category: category[0],
-      articles,
-    }
-  },
-});
+const { data: articles } = await useAsyncData(`blog-category-${slug.value}-articles`, () => queryContent('/blog').where({ 'categories': { $contains: category.value?.customSlug } }).find())
 </script>
 
 <style scoped>

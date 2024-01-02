@@ -70,6 +70,7 @@ typings/
 
 # Nuxt generate
 dist
+.output
 
 # vuepress build output
 .vuepress/dist
@@ -89,9 +90,7 @@ sw.*
 # Vim swap files
 *.swp
 
-# Cypress
-cypress/screenshots
-cypress/videos
-/test-results/
-/playwright-report/
-/playwright/.cache/
+# Tests
+test-results/
+playwright-report/
+playwright/.cache/

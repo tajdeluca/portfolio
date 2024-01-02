@@ -23,10 +23,10 @@ on:
 jobs:
   test:
     runs-on: ${{ inputs.runner }}
-    container: 'mcr.microsoft.com/playwright:v1.21.1-focal'
+    container: 'mcr.microsoft.com/playwright:v1.40.1-focal'
     steps:
     # Checkout
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Cache node modules
       id: cache-npm
       uses: actions/cache@v3
@@ -40,14 +40,14 @@ jobs:
           ${{ runner.os }}-${{ env.cache-name }}-
           ${{ runner.os }}-
     # Download previous build
-    - uses: actions/download-artifact@v3
+    - uses: actions/download-artifact@v4
       if: ${{ inputs.test_is_against_deployment == false }}
       with:
         name: ${{ inputs.build_artifact_name }}
-        path: dist
+        path: src/.output/public
     # Setup NodeJS
     - name: Setup Node.js environment
-      uses: actions/setup-node@v1.4.4
+      uses: actions/setup-node@v4
       with:
         node-version: ${{ inputs.node_version }}
     # Install dependencies
@@ -55,20 +55,20 @@ jobs:
       run: npm ci
     - name: Run Playwright tests for feature
       if: ${{ inputs.test_is_against_deployment == false }}
-      run: npm test --ignore-scripts
+      run: HOME=/root npm test --ignore-scripts
       env:
         CI: 'anything'
         TEST_BASE_URL: ${{ inputs.test_base_url }}
     - name: Run Playwright tests
       if: ${{ inputs.test_is_against_deployment }}
-      run: npm test --ignore-scripts
+      run: HOME=/root npm test --ignore-scripts
       env:
         CI: 'anything'
         TEST_BASE_URL: ${{ inputs.test_base_url }}
         TEST_IS_AGAINST_DEPLOYMENT: 'anything'
-    - uses: actions/upload-artifact@v2
+    - uses: actions/upload-artifact@v4
       if: always()
       with:
         name: ${{ inputs.test_report_artifact_name }}
-        path: playwright-report/
+        path: test/integration/playwright-report/
         retention-days: 30

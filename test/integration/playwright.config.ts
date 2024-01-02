@@ -1,5 +1,5 @@
-import type { PlaywrightTestConfig, WebServerConfig } from '@playwright/test';
-import { devices } from '@playwright/test';
+import type { PlaywrightTestConfig } from '@playwright/test';
+import { defineConfig, devices } from '@playwright/test';
 
 /**
  * Read environment variables from file.
@@ -7,16 +7,8 @@ import { devices } from '@playwright/test';
  */
 // require('dotenv').config();
 
-const featureWebServerConfig: WebServerConfig = {
-  command: 'npm start',
-  port: 3000
-};
-
-/**
- * See https://playwright.dev/docs/test-configuration.
- */
-const config: PlaywrightTestConfig = {
-  testDir: './integrated-tests',
+export default defineConfig({
+  testDir: '.',
   /* Maximum time one test can run for. */
   timeout: 30 * 1000,
   expect: {
@@ -40,7 +32,6 @@ const config: PlaywrightTestConfig = {
     actionTimeout: 0,
     /* Base URL to use in actions like `await page.goto('/')`. */
     baseURL: process.env.TEST_BASE_URL,
-
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
   },
@@ -67,41 +58,14 @@ const config: PlaywrightTestConfig = {
         ...devices['Desktop Safari'],
       },
     },
-
-    /* Test against mobile viewports. */
-    // {
-    //   name: 'Mobile Chrome',
-    //   use: {
-    //     ...devices['Pixel 5'],
-    //   },
-    // },
-    // {
-    //   name: 'Mobile Safari',
-    //   use: {
-    //     ...devices['iPhone 12'],
-    //   },
-    // },
-
-    /* Test against branded browsers. */
-    // {
-    //   name: 'Microsoft Edge',
-    //   use: {
-    //     channel: 'msedge',
-    //   },
-    // },
-    // {
-    //   name: 'Google Chrome',
-    //   use: {
-    //     channel: 'chrome',
-    //   },
-    // },
   ],
 
   /* Folder for test artifacts such as screenshots, videos, traces, etc. */
   // outputDir: 'test-results/',
 
   /* Run your local dev server before starting the tests */
-  webServer: process.env.TEST_IS_AGAINST_DEPLOYMENT ? undefined : featureWebServerConfig,
-};
-
-export default config;
+  webServer: process.env.TEST_IS_AGAINST_DEPLOYMENT ? undefined : {
+    command: 'cd ../../src && npx serve .output/public',
+    port: 3000
+  },
+});

@@ -1,34 +1,25 @@
 {
-  "name": "portfolio",
-  "version": "1.0.0",
+  "name": "portfolio-workspace",
   "private": true,
+  "version": "1.0.0",
   "scripts": {
-    "dev": "nuxt-ts",
-    "build": "nuxt-ts build",
-    "start": "nuxt-ts start",
-    "generate": "nuxt-ts generate",
-    "pretest": "npm run build",
-    "test": "playwright test"
+    "build": "npm run build --workspace=src",
+    "dev": "npm run dev --workspace=src",
+    "generate": "npm run generate --workspace=src",
+    "show-playwright-report": "npx playwright show-report test/integration/playwright-report",
+    "start": "npm run start --workspace=src",
+    "pretest": "npm run generate",
+    "test": "npm run test --workspaces --if-present"
   },
-  "dependencies": {
-    "@nuxt/content": "^1.7.0",
-    "@nuxt/typescript-runtime": "^1.0.0",
-    "concurrently": "^5.3.0",
-    "date-fns": "^2.17.0",
-    "nuxt": "^2.14.0",
-    "reading-time": "^1.2.1",
-    "typeface-raleway": "0.0.75",
-    "typeface-zilla-slab": "0.0.72"
-  },
+  "workspaces": [
+    "src",
+    "test/integration",
+    "test/unit"
+  ],
   "devDependencies": {
-    "@nuxt/types": "^2.14.3",
-    "@nuxt/typescript-build": "^2.0.2",
-    "@playwright/test": "^1.21.1",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.4",
-    "prettier": "^2.0.5"
-  },
-  "optionalDependencies": {
-    "playwright": "^1.21.1"
+    "prettier": "^2.0.5",
+    "typescript": "^5.3.3"
   }
 }

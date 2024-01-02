@@ -31,7 +31,7 @@ jobs:
     runs-on: ${{ inputs.runner }}
     steps:
     # Download previous build
-    - uses: actions/download-artifact@v3
+    - uses: actions/download-artifact@v4
       with:
         name: ${{ inputs.build_artifact_name }}
         path: dist
@@ -56,7 +56,7 @@ jobs:
         SOURCE_DIR: 'dist'
     # Install Python
     - name: Set up Python 3.8
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v5
       with:
         python-version: 3.8
     # Install pip and s3cmd
@@ -69,7 +69,7 @@ jobs:
       run: s3cmd --access_key "${{ secrets.AWS_ACCESS_KEY_ID }}" --secret_key "${{ secrets.AWS_SECRET_ACCESS_KEY }}" --region "${{ inputs.aws_region }}" --recursive modify --add-header "Cache-Control:max-age=2592000" --exclude "*.html" --exclude "*.ico" s3://${{ secrets.AWS_S3_BUCKET }}/
     # Invalidate Cloudfront
     - name: Invalidate CloudFront Caches
-      uses: chetan/invalidate-cloudfront-action@master
+      uses: chetan/invalidate-cloudfront-action@v2
       env:
         DISTRIBUTION: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
         PATHS: '/*'

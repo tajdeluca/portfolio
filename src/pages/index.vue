@@ -22,44 +22,36 @@
       <article v-for="(job, index) in jobs" :key="index">
         <h4>{{ job.title }}</h4>
         <p>{{ job.description }}</p>
-        <p><nuxt-link :to="`experience/${job.slug}/`">Learn more about my time at {{job.title}}.</nuxt-link></p>
-        <hr v-if="index === Object.keys(jobs).length - 1">
+        <p><NuxtLink :to="job._path">Learn more about my time at {{job.title}}.</NuxtLink></p>
+        <hr v-if="index === (jobs?.length ?? 0) - 1">
       </article>
       <h3>Wait, there's more...</h3>
       <article>
         <h4>About me</h4>
         <p>It's hard to put into words what I'm capable of. Spreading it out all over the place might be a bit confusing and the introduction
-          on this page, I think, is way too small to get an idea of that! You can <nuxt-link to="about">learn more about me here</nuxt-link> to get
+          on this page, I think, is way too small to get an idea of that! You can <NuxtLink to="about">learn more about me here</NuxtLink> to get
           a better idea of who I am and what I can do.</p>
         <h4>About the knowledge I can share</h4>
         <p>Occasionally I like to write down a bit more about my achievements, or perhaps just my thoughts on particular topics.
-          If you're interested in that you can <nuxt-link to="blog">find my blog here.</nuxt-link></p>
+          If you're interested in that you can <NuxtLink to="blog">find my blog here.</NuxtLink></p>
       </article>
 
     </div>
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue';
+<script setup lang="ts">
 
-export default Vue.extend({
-  head: {
-    title: 'Taj Deluca - Front End Wizard',
-    meta: [
-      { hid: 'description', name: 'description', content: `A senior full stack software engineer based in the United Kingdom. I love all things web development!` }
-    ]
-  },
-  async asyncData ({ $content }) {
-    const jobs = await $content(`experience`)
-      .sortBy('startDate')
-      .fetch();
+useHead({
+  title: 'Taj Deluca - Front End Wizard',
+  meta: [
+    { name: 'description', content: `A senior full stack software engineer based in the United Kingdom. I love all things web development!` }
+  ]
+})
 
-    return {
-      jobs
-    }
-  }
-});
+const { data: jobs } = await useAsyncData('jobs', () => queryContent('/experience').sort({
+  startDate: 1
+}).find())
 </script>
 
 <style scoped>
