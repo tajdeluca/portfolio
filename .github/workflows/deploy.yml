@@ -30,6 +30,8 @@ jobs:
   deploy:
     runs-on: ${{ inputs.runner }}
     steps:
+    # Fetch repo for any other assets
+    - uses: actions/checkout@v4
     # Download previous build
     - uses: actions/download-artifact@v4
       with:
@@ -38,11 +40,11 @@ jobs:
     # Setup beta robots.txt
     - name: Setup Beta robots.txt
       if: ${{ inputs.is_production == false }}
-      run: mv dist/robots.beta.txt dist/robots.txt
+      run: mv src/static/robots.beta.txt dist/robots.txt
     # Setup production robots.txt
     - name: Setup Production robots.txt
       if: ${{ inputs.is_production }}
-      run: mv dist/robots.prod.txt dist/robots.txt
+      run: mv src/static/robots.prod.txt dist/robots.txt
     # Now deploy to S3!
     - name: S3 Sync
       uses: jakejarvis/s3-sync-action@v0.5.1
