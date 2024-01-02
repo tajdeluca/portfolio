@@ -26,8 +26,8 @@
     "Arial", sans-serif;
   --horizontal-rule-start-colour: var(--body-foreground-colour);
   --horizontal-rule-end-colour: var(--body-foreground-colour);
-  --link-default-colour: #3273dc;
-  --link-visited-colour: #3273dc;
+  --link-default-colour: #1425b0;
+  --link-visited-colour: #1425b0;
 
   font-size: var(--base-font-size);
   line-height: 1.5;
