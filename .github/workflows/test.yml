@@ -23,7 +23,7 @@ on:
 jobs:
   test:
     runs-on: ${{ inputs.runner }}
-    container: 'mcr.microsoft.com/playwright:v1.40.1-focal'
+    container: 'mcr.microsoft.com/playwright:v1.49.1-noble'
     steps:
     # Checkout
     - uses: actions/checkout@v4
