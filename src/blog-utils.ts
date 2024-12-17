@@ -1,4 +1,4 @@
-import type { ParsedContent } from "@nuxt/content/dist/runtime/types";
+import type { ParsedContent } from "@nuxt/content";
 import { format } from "date-fns";
 
 export function getCreatedDateAsDateTime(article: ParsedContent) {

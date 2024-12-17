@@ -3,9 +3,10 @@
   "private": true,
   "version": "1.0.0",
   "scripts": {
-    "test": "playwright test --trace on"
+    "test": "playwright test --trace on",
+    "test:results": "playwright show-report"
   },
   "devDependencies": {
-    "@playwright/test": "^1.40.0"
+    "@playwright/test": "^1.49.1"
   }
 }

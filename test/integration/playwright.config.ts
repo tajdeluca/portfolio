@@ -16,7 +16,7 @@ export default defineConfig({
      * Maximum time expect() should wait for the condition to be met.
      * For example in `await expect(locator).toHaveText();`
      */
-    timeout: 5000
+    timeout: 5000,
   },
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
@@ -39,26 +39,50 @@ export default defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
-      name: 'chromium',
+      name: 'desktop-chromium',
       use: {
         ...devices['Desktop Chrome'],
       },
     },
-
     {
-      name: 'firefox',
+      name: 'desktop-firefox',
       use: {
         ...devices['Desktop Firefox'],
       },
     },
-
     {
-      name: 'webkit',
+      name: 'desktop-webkit',
       use: {
         ...devices['Desktop Safari'],
       },
     },
+    {
+      name: 'mobile-webkit-portrait',
+      use: {
+        ...devices['iPhone 13 Pro Max'],
+      },
+    },
+    {
+      name: 'mobile-webkit-landscape',
+      use: {
+        ...devices['iPhone 13 Pro Max landscape'],
+      },
+    },
+    {
+      name: 'tablet-webkit-portrait',
+      use: {
+        ...devices['iPad Pro 11'],
+      },
+    },
+    {
+      name: 'tablet-webkit-landscape',
+      use: {
+        ...devices['iPad Pro 11 landscape'],
+      },
+    },
   ],
+
+  snapshotPathTemplate: '{testDir}/__snapshots/{testFilePath}/{projectName}-{arg}{ext}',
 
   /* Folder for test artifacts such as screenshots, videos, traces, etc. */
   // outputDir: 'test-results/',
