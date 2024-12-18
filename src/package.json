@@ -4,11 +4,11 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare",
+    "build": "nuxi build",
+    "dev": "nuxi dev",
+    "generate": "nuxi generate",
+    "preview": "nuxi preview",
+    "postinstall": "nuxi prepare",
     "upgrade": "npx nuxi@latest upgrade --force"
   },
   "dependencies": {
@@ -20,8 +20,8 @@
   },
   "devDependencies": {
     "nuxt": "^3.14.1592",
-    "vue": "^3.5.13",
-    "vue-router": "^4.5.0",
-    "vue-tsc": "^2.1.10"
+    "vue": "latest",
+    "vue-router": "latest",
+    "vue-tsc": "latest"
   }
 }
