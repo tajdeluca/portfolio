@@ -16,9 +16,9 @@
 
 <script setup lang="ts">
 const route = useRoute()
-const slug = ref(route.fullPath)
+const slug = ref(route.params["slug"])
 
-const { data: job } = await useAsyncData(`experience:${slug}`, () => queryContent(slug.value).findOne())
+const { data: job } = await useAsyncData(`experience:${slug.value}`, () => queryContent(`/experience/${slug.value}`).findOne())
 
 const horizontalRuleStyles = ref({
   '--horizontal-rule-start-colour': job.value?.gradientStartColour,

@@ -11,7 +11,7 @@ jobs:
     uses: ./.github/workflows/build.yml
     with:
       artifact_name: 'build'
-      node_version: '20.x'
+      node_version: '22.x'
       runner: 'ubuntu-latest'
   test:
     name: 'Test'
@@ -19,7 +19,7 @@ jobs:
     uses: ./.github/workflows/test.yml
     with:
       build_artifact_name: 'build'
-      node_version: '20.x'
+      node_version: '22.x'
       runner: 'ubuntu-latest'
       test_base_url: 'http://localhost:3000'
       test_is_against_deployment: false
@@ -46,7 +46,7 @@ jobs:
     uses: ./.github/workflows/test.yml
     with:
       build_artifact_name: 'build'
-      node_version: '20.x'
+      node_version: '22.x'
       runner: 'ubuntu-latest'
       test_base_url: 'https://beta.tajdeluca.com'
       test_is_against_deployment: true
@@ -73,7 +73,7 @@ jobs:
     uses: ./.github/workflows/test.yml
     with:
       build_artifact_name: 'build'
-      node_version: '20.x'
+      node_version: '22.x'
       runner: 'ubuntu-latest'
       test_base_url: 'https://tajdeluca.com'
       test_is_against_deployment: true

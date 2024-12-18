@@ -9,7 +9,8 @@
     "show-playwright-report": "npx playwright show-report test/integration/playwright-report",
     "start": "npm run start --workspace=src",
     "pretest": "npm run generate",
-    "test": "npm run test --workspaces --if-present"
+    "test": "npm run test --workspaces --if-present",
+    "test:results": "npm run test:results --workspaces --if-present"
   },
   "workspaces": [
     "src",
