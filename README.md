@@ -1,5 +1,5 @@
 # portfolio
-![Beta CI](https://github.com/tajdeluca/portfolio/workflows/Beta%20CI/badge.svg) ![Production CI](https://github.com/tajdeluca/portfolio/workflows/Production%20CI/badge.svg?branch=master)
+![CI/CD](https://github.com/tajdeluca/portfolio/workflows/Deployment/badge.svg)
 
 ## Build Setup
 
