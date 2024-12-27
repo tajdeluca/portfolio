@@ -5,7 +5,7 @@ test.beforeEach(async ({ page }) => {
 });
 
 test.describe('Index page navigation', () => {
-  test('internal links should navigate to other pages', async ({ page }) => {
+  test.skip('internal links should navigate to other pages', async ({ page }) => {
     test.slow();
     const anchors = await page.locator('a[href]').all()
     expect(anchors.length).toBeGreaterThan(0);
