@@ -1,5 +1,5 @@
 ### This is who I am.
-Hello there, I'm Taj 👋! I'm a 29 year old full stack software engineer/developer/tinkerer with a particular fascination/obsession with the web! I live in the South-East of England (always have) and currently reside in a town called Eastbourne. The sea is a big source of inspiration for me as it represents chaos that can bring peace with the right mindset, a lot like working in high-paced environments!
+Hello there, I'm Taj 👋! I'm a full stack software engineer/developer/tinkerer with a particular fascination/obsession with the web!
 
 The stack I currently work with on a regular basis includes:
 
